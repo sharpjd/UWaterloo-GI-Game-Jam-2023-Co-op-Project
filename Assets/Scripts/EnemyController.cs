@@ -5,14 +5,24 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    int health;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        ProjectileController projectileController = collision.gameObject.GetComponent<ProjectileController>();
+        if (projectileController != null)
+        {
+            health -= projectileController.damage;
+            Destroy(projectileController.gameObject);
+            if (health <= 0) Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void Die()
     {
-        
+        Destroy(gameObject);
     }
+
 }
