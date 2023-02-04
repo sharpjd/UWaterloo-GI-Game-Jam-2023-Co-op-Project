@@ -10,6 +10,8 @@ public class TowerEntity : Entity
     public Sprite towerSprite;
 
     public float range = 3f;
+
+
     void Start()
     {
         

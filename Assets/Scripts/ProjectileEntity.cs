@@ -6,7 +6,10 @@ using UnityEngine;
 public class ProjectileEntity : Entity
 {
     [SerializeField]
-    public int damage;
+    public int damage = 1;
+
+    [SerializeField]
+    public float speedPerSecond = 1f;
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
