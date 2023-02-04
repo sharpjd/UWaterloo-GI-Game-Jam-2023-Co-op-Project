@@ -13,19 +13,19 @@ public class CutsceneManager : MonoBehaviour
 
     public Frame[] frames;
 
-    private TMP_Text text;
+    private Text text;
 
     // Start is called before the first frame update
     void Start()
     {
-        text = textObject.GetComponent<TMP_Text>();
+        text = textObject.GetComponent<Text>();
         StartCoroutine(ShowFrame(frames, 0));
     }
 
     IEnumerator ShowFrame(Frame[] frames, int index)
     {
         image.sprite = frames[index].image;
-        text.SetText(frames[index].text);
+        text.text = (frames[index].text);
         yield return new WaitForSeconds(frames[index].length);
         StartCoroutine("FadeOut");
         yield return new WaitForSeconds(2);
