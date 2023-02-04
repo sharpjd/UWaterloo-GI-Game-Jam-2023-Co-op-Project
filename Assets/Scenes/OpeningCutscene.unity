@@ -299,7 +299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f67784f708fafd2459825e1e0e157bd3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 58a7004838cc4ab4688a2b9006be547b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e836cb9d5152a2144a210d702b3ac551, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1cabe1b6aa78dfb4a9444445bf356533, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -649,19 +649,19 @@ MonoBehaviour:
   textBox: {fileID: 1179641100}
   frames:
   - text: I WANT YOU TO CUT DOWN EVERY SINGLE TREE IS THE BAGUMBAGUMBA FOREST!!!!!!!
-    image: {fileID: 21300000, guid: e836cb9d5152a2144a210d702b3ac551, type: 3}
+    image: {fileID: 21300000, guid: 1cabe1b6aa78dfb4a9444445bf356533, type: 3}
     length: 3
   - text: But sir! It the bawumbahumba forest is an important part of natu-
-    image: {fileID: 21300000, guid: 4cfd643f932cfca43aac28d00b96420d, type: 3}
+    image: {fileID: 21300000, guid: 87587f83c40f3c6488f8683d7a5c3ae5, type: 3}
     length: 3
   - text: BUT I WANT MONEEEY!!!! THE BAHUNGAJUNGA WOOD WILL GIVE ME MONEEEY!!! MONEEY!!!!
       MONEEEEEEEY!!!!!!!!!!!!!!!
-    image: {fileID: 21300000, guid: e46a5e7757df2d248b301ca50e0735c2, type: 3}
+    image: {fileID: 21300000, guid: 836eff10496bbdb4e8a6e0c2c64f8994, type: 3}
     length: 5
   - text: But sir! there is a magic elder tree in the Bakungalunga forest that will
       defend itself with magic!
-    image: {fileID: 21300000, guid: 4cfd643f932cfca43aac28d00b96420d, type: 3}
+    image: {fileID: 21300000, guid: 87587f83c40f3c6488f8683d7a5c3ae5, type: 3}
     length: 3
   - text: MONEEEEEEEEEEEEEY!!!!!!!!!! MONEY! MONEY! MONEY!MONEY!MONEY!MONEY!MONEY!MONEY!MONEY!
-    image: {fileID: 21300000, guid: e46a5e7757df2d248b301ca50e0735c2, type: 3}
+    image: {fileID: 21300000, guid: 836eff10496bbdb4e8a6e0c2c64f8994, type: 3}
     length: 3
