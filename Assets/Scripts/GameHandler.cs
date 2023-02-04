@@ -10,6 +10,8 @@ public class GameHandler : MonoBehaviour
     public EntityTracker entityTracker;
     public MapPositioner mapPositioner;
 
+    private int Essence = 0;
+
     private void Awake()
     {
         instance = this;
@@ -30,5 +32,21 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public int GetEssence()
+    {
+        return Essence;
+    }
+
+    public bool PayEssence(int amount)
+    {
+        if (Essence >= amount)
+        {
+            Essence -= amount;
+            return true;
+        }
+
+        return false;
     }
 }
