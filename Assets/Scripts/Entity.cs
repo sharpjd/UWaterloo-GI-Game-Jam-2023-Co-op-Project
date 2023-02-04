@@ -8,6 +8,9 @@ public class Entity : MonoBehaviour
 
     List<IEntityExtension> entityExtensions = new();
 
+    [SerializeField]
+    bool AddToTargetTrackerAtStart = false;
+
     public bool AddEntityExtension(IEntityExtension entityExtension)
     {
         entityExtensions.Add(entityExtension);
@@ -30,7 +33,10 @@ public class Entity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (AddToTargetTrackerAtStart)
+        {
+            GameHandler.instance.entityTracker.AddToTracker(this);  
+        }
     }
 
     // Update is called once per frame

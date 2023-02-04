@@ -7,7 +7,8 @@ using UnityEngine;
 public class EntityTracker : MonoBehaviour
 {
 
-    public List<Entity> entities = new();
+    [SerializeField]
+    List<Entity> entities = new();
 
     // Start is called before the first frame update
     void Start()

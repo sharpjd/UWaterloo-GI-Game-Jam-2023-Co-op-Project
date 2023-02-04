@@ -16,6 +16,9 @@ public class MapPositioner : MonoBehaviour
     public MapPathPoint FirstMapPathPoint { get => firstMapPathPoint; }
     public MapPathPoint LastMapPathPoint { get => lastMapPathPoint; }
 
+    [SerializeField]
+    bool debugOutput = false;
+
     private void Awake()
     {
 
@@ -80,7 +83,8 @@ public class MapPositioner : MonoBehaviour
         MapPathPoint point1 = null;
         MapPathPoint point2 = null;
 
-        Debug.Log("Distance and percentage: " + distance + ", " + progress);
+        if(debugOutput)
+            Debug.Log("Distance and percentage: " + distance + ", " + progress);
 
         //Find the two points the progress is supposed to be in between 
         float progressRemaining = progress;
@@ -102,7 +106,8 @@ public class MapPositioner : MonoBehaviour
             //this point and the next point is less than zero,
             //then the progress is between the following two points
             //Debug.Log(deltaDistance);
-            Debug.Log("DeltaDistance: " + deltaDistance);
+            if (debugOutput)
+                Debug.Log("DeltaDistance: " + deltaDistance);
             distanceRemaining -= deltaDistance;
             if (distanceRemaining < 0)
             {
@@ -117,10 +122,13 @@ public class MapPositioner : MonoBehaviour
         //A nullreference will be thrown here if the above loop is not working correctly
         float distanceBetweenP1P2 = Vector2.Distance(point1.transform.position, point2.transform.position);
 
-        Debug.DrawLine(point1.transform.position, point2.transform.position);
-        Debug.Log("1: " + point1.transform.position, point1);
-        Debug.Log("2: " + point2.transform.position, point2);
-        Debug.Log("Progress Remaining Delta: " + progressRemaining);
+        if (debugOutput)
+        {
+            Debug.DrawLine(point1.transform.position, point2.transform.position);
+            Debug.Log("1: " + point1.transform.position, point1);
+            Debug.Log("2: " + point2.transform.position, point2);
+            Debug.Log("Progress Remaining Delta: " + progressRemaining);
+        }
 
         //line between point 1 and point 2
         Vector2 dir = point2.transform.position - point1.transform.position;
