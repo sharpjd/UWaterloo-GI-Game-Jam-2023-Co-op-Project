@@ -15,6 +15,8 @@ public class GameHandler : MonoBehaviour
 
     private int Essence = 0;
 
+    private int health = 100;
+
     private void Awake()
     {
         instance = this;
@@ -58,5 +60,19 @@ public class GameHandler : MonoBehaviour
     {
         Essence += amount;
         EssenceText.text = Essence.ToString();
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
+
+    public void LoseHealth(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Debug.Log("You deaad");
+        }
     }
 }

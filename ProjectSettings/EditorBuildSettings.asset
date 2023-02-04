@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/OpeningCutscene.unity
+    guid: d43cfd56d5f33864d8b3a826e94d7415
+  - enabled: 1
+    path: Assets/Scenes/Frank.unity
+    guid: 2d266c80db014624ca1d4c86eb7155b4
   m_configObjects: {}
