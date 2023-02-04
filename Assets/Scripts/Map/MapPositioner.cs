@@ -7,7 +7,6 @@ public class MapPositioner : MonoBehaviour
 {
 
     float sumOfDistance;
-    float distancePerProgressPercent;
 
     List<MapPathPoint> MapPathPoints= new List<MapPathPoint>();
 
@@ -24,9 +23,10 @@ public class MapPositioner : MonoBehaviour
 
         MapPathPoint[] mapPathPointsToSort = FindObjectsOfType<MapPathPoint>();
         points = mapPathPointsToSort.Length;
+
         MapPathPoint[] sortedMapPathPoints = new MapPathPoint[points];
 
-        foreach(MapPathPoint mapPathPoint in mapPathPointsToSort)
+        foreach (MapPathPoint mapPathPoint in mapPathPointsToSort)
         {
             sortedMapPathPoints[mapPathPoint.NumberInPointSequence] = mapPathPoint;
 
@@ -35,12 +35,13 @@ public class MapPositioner : MonoBehaviour
                 firstPoint = mapPathPoint;
             }
         }
-        MapPathPoints = new List<MapPathPoint>(FindObjectsOfType<MapPathPoint>());
-
+        MapPathPoints = new List<MapPathPoint>(sortedMapPathPoints);
+        
+        /*
         foreach(MapPathPoint mapPathPoint in MapPathPoints)
         {
             Debug.Log(mapPathPoint.NumberInPointSequence + ", " + mapPathPoint.gameObject.transform.position, mapPathPoint);
-        }
+        }*/
 
         //find the sum of the distance between all points and the ratio of distance/percentage
         for (int i = 1; i < MapPathPoints.Count; i++)
@@ -51,7 +52,6 @@ public class MapPositioner : MonoBehaviour
                     );
         }
 
-        distancePerProgressPercent = distancePerProgressPercent / sumOfDistance;
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public class MapPositioner : MonoBehaviour
     public Vector2 GetPositionOnMapByProgress(float progress)
     {
         //total distance along the line composed of all the linear lines
-        float distance = distancePerProgressPercent * progress;
+        float distance = sumOfDistance * progress;
 
         float progressRemaining = progress;
 
@@ -85,6 +85,7 @@ public class MapPositioner : MonoBehaviour
             //if the remaining distance minus the distance between
             //this point and the next point is less than zero,
             //then the progress is between the following two points
+            //Debug.Log(deltaDistance);
             if(deltaDistance < 0)
             {
                 point1 = MapPathPoints[i];
@@ -92,18 +93,25 @@ public class MapPositioner : MonoBehaviour
                 break;
             } else
             {
+                //else, just keep the loop going
                 distance -= deltaDistance;
-                progressRemaining -= deltaDistance * distancePerProgressPercent;
+                progressRemaining -= deltaDistance / sumOfDistance;
             }
         }
 
         //A nullreference will be thrown here if the above loop is not working correctly
         float distanceBetweenP1P2 = Vector2.Distance(point1.transform.position, point2.transform.position);
 
+        Debug.DrawLine(point1.transform.position, point2.transform.position);
+        Debug.Log("1: " + point1.transform.position, point1);
+        Debug.Log("2: " + point2.transform.position, point2);
+
         Vector2 dir = point2.transform.position - point1.transform.position;
         dir.Normalize();
 
-        dir *= (progressRemaining * distancePerProgressPercent);
+        dir *= (progressRemaining * sumOfDistance);
+
+        //Debug.Log("Dir: " + dir);
 
         return (Vector2)point1.transform.position + dir;
     }

@@ -18,4 +18,11 @@ public class EntityTracker : MonoBehaviour
     {
         
     }
+
+    public bool AddToTracker(Entity entity)
+    {
+        entities.Add(entity);
+        //unfinished
+        return true;
+    }
 }
