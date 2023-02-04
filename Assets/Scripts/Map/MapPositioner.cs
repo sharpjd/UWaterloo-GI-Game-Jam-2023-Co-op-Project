@@ -11,9 +11,34 @@ public class MapPositioner : MonoBehaviour
 
     List<MapPathPoint> MapPathPoints= new List<MapPathPoint>();
 
-    private void Start()
+    public MapPathPoint firstMapPathPoint;
+
+    private void Awake()
     {
-        for(int i = 1; i < MapPathPoints.Count; i++)
+
+        //find the first point in the sequence and make an array sorted in order of the points
+        //then assign it to MapPathPoints
+        //the sort is required because the progress algorithm depends on it
+        int points = 0;
+        MapPathPoint firstPoint;
+
+        MapPathPoint[] mapPathPointsToSort = FindObjectsOfType<MapPathPoint>();
+        points = mapPathPointsToSort.Length;
+        MapPathPoint[] sortedMapPathPoints = new MapPathPoint[points];
+
+        foreach(MapPathPoint mapPathPoint in mapPathPointsToSort)
+        {
+            sortedMapPathPoints[mapPathPoint.NumberInPointSequence] = mapPathPoint;
+
+            if(mapPathPoint.NumberInPointSequence == 0)
+            {
+                firstPoint = mapPathPoint;
+            }
+        }
+        MapPathPoints = new List<MapPathPoint>(FindObjectsOfType<MapPathPoint>());
+
+        //find the sum of the distance between all points and the ratio of distance/percentage
+        for (int i = 1; i < MapPathPoints.Count; i++)
         {
             sumOfDistance += Vector2.Distance(
                     MapPathPoints[i - 1].gameObject.transform.position,

@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
+
+    public static GameHandler instance;
+
+    public EntityTracker entityTracker;
+    public MapPositioner mapPositioner;
+
+    private void Awake()
+    {
+        if (entityTracker == null)
+            Debug.LogError("Missing EntityTracker instance");
+        if (mapPositioner == null)
+            Debug.LogError("Missing MapPositioner instance");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
