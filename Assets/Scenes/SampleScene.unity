@@ -925,6 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddToTargetTrackerAtStart: 0
+  currentVelocityPerSecond: 0
   towerSprite: {fileID: 21300000, guid: 4864bb9d8ebd6454c85db924a1d67022, type: 3}
   projectileToInstantiate: {fileID: 1580141661579430887, guid: 9af5fd471b2101a4e93609850afb99e5, type: 3}
   range: 10
@@ -1247,6 +1248,10 @@ PrefabInstance:
     - target: {fileID: 1580141661579430887, guid: 9af5fd471b2101a4e93609850afb99e5, type: 3}
       propertyPath: m_Name
       value: OrangeProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580141661579430887, guid: 9af5fd471b2101a4e93609850afb99e5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af5fd471b2101a4e93609850afb99e5, type: 3}

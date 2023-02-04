@@ -1,6 +1,7 @@
 using Assets;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -10,6 +11,14 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     bool AddToTargetTrackerAtStart = false;
+
+    [SerializeField]
+    float currentVelocityPerSecond;
+    public float CurrentVelocityPerSecond { get => currentVelocityPerSecond; }
+
+    [SerializeField]
+    Vector2 currentVelocityPerSecondVec;
+    public Vector2 CurrentVelocityPerSecondVec { get => currentVelocityPerSecondVec; }
 
     public bool AddEntityExtension(IEntityExtension entityExtension)
     {
@@ -22,7 +31,7 @@ public class Entity : MonoBehaviour
     Physics2D physics2D;
     */
 
-    private void Awake()
+    public virtual void Awake()
     {
         /*
         texture2D = GetComponent<Texture2D>();
@@ -31,17 +40,22 @@ public class Entity : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
+        previousPos = transform.position;
+
         if (AddToTargetTrackerAtStart)
         {
             GameHandler.instance.entityTracker.AddToTracker(this);  
         }
     }
 
+    Vector2 previousPos;
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        
+        currentVelocityPerSecond = ((Vector2)transform.position - previousPos).magnitude/Time.deltaTime;
+        currentVelocityPerSecondVec = ((Vector2)transform.position - previousPos)/Time.deltaTime;
+        previousPos = transform.position;
     }
 }

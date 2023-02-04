@@ -9,7 +9,7 @@ public class ProjectileEntity : Entity
     public int damage = 1;
 
     [SerializeField]
-    public float speedPerSecond = 1f;
+    public float velocityPerSecond = 1f;
 
     [SerializeField]
     float lifetimeSeconds = 10f;
@@ -33,14 +33,16 @@ public class ProjectileEntity : Entity
         Destroy(gameObject);
     }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         firedTime = Time.time;
     }
 
-    public void Update()
+    public override void Update()
     {
-        transform.position += (Vector3)((Vector2)transform.right * speedPerSecond * Time.deltaTime);
+        base.Update();
+        transform.position += (Vector3)((Vector2)transform.right * velocityPerSecond * Time.deltaTime);
 
         if(Time.time - firedTime > lifetimeSeconds)
         {

@@ -19,16 +19,24 @@ public class TowerEntity : Entity
     float fireRateSecs = 0.5f;
     [SerializeField]
     bool debugOutput = false;
+    [SerializeField]
+    bool shotPrediction = true;
 
-    void Start()
+    //obtained from projectileToInstantiate
+    float projectileVelocity;
+
+    public override void Start()
     {
+        base.Start();
+        projectileVelocity = projectileToInstantiate.GetComponent<ProjectileEntity>().velocityPerSecond;
         gameObject.GetComponent<SpriteRenderer>().sprite = towerSprite;
     }
 
     // Update is called once per frame
     float lastTimeFired = 0;
-    void Update()
+    public override void Update()
     {
+        base.Update();
         if(Time.time - lastTimeFired > fireRateSecs) {
             OnProjectileFire();
             lastTimeFired= Time.time;
@@ -53,8 +61,11 @@ public class TowerEntity : Entity
         GameObject projectile = Instantiate(projectileToInstantiate);
         projectile.transform.position = transform.position;
 
-        Vector2 yx = (Vector2)target.transform.position - (Vector2)transform.position;
-        projectile.transform.rotation = Quaternion.AngleAxis(Mathf.Atan2(yx.y, yx.x) * Mathf.Rad2Deg, Vector3.forward);
+        Vector2 predictedTargetDirection = PositioningUtils.PredictShotToTarget(transform.position, target.transform, projectileVelocity, target.CurrentVelocityPerSecondVec);
+        if (shotPrediction)
+            projectile.transform.rotation = PositioningUtils.LookFromToAt(transform.position, predictedTargetDirection);
+        else
+            projectile.transform.rotation = PositioningUtils.LookFromToAt(transform.position, target.transform.position);
 
         projectile.SetActive(true);
     }

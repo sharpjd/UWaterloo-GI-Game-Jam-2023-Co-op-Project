@@ -17,8 +17,9 @@ public class EnemyEntity : Entity, IHittable
 
     public int Health { get => health; set { health = value; } }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         GameHandler.instance.entityTracker.AddToTracker(this);
     }
 
