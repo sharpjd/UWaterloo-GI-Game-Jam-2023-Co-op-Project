@@ -16,7 +16,7 @@ public class ProjectileEntity : Entity
 
     float firedTime;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         Entity entity = collision.gameObject.GetComponent<Entity>();
         if (entity is IHittable)
@@ -27,7 +27,7 @@ public class ProjectileEntity : Entity
         } 
     }
 
-    public void OnDestruction()
+    public virtual void OnDestruction()
     {
         //maybe a hit animation? (could be as simple as a brighten, large, and fade out)
         Destroy(gameObject);

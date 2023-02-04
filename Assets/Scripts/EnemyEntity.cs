@@ -23,18 +23,17 @@ public class EnemyEntity : Entity, IHittable
         GameHandler.instance.entityTracker.AddToTracker(this);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
-
-    public void OnDamage(int damage)
+    public virtual void OnDamage(int damage)
     {
         health -= damage;
-        if (health <= 0) Die();
+        if (health <= 0)
+        {
+            Debug.Log("I am dead");
+            Die();
+        }
     }
 
-    public void Die()
+    public virtual void Die()
     { 
         GameHandler.instance.GainEssence(essence);
         GameHandler.instance.entityTracker.RemoveFromTracker(this);

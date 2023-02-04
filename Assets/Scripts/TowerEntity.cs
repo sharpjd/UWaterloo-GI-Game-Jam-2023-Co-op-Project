@@ -44,16 +44,19 @@ public class TowerEntity : Entity
         }
     }
 
-    void OnProjectileFire()
+    public virtual void OnProjectileFire()
     {
 
         Entity closestTarget = 
             GameHandler.instance.entityTracker.GetClosestEnemy(transform.position, range);
 
-        FireProjectile(closestTarget);
+        if (closestTarget != null)
+        {
+            FireProjectile(closestTarget);
+        }
     }
 
-    void FireProjectile(Entity target)
+    public virtual void FireProjectile(Entity target)
     {
         if(debugOutput)
             Debug.DrawLine(transform.position, target.transform.position, Color.red, 3f);
@@ -62,6 +65,7 @@ public class TowerEntity : Entity
         projectile.transform.position = transform.position;
 
         Vector2 predictedTargetDirection = PositioningUtils.PredictShotToTarget(transform.position, target.transform, projectileVelocity, target.CurrentVelocityPerSecondVec);
+
         if (shotPrediction)
             projectile.transform.rotation = PositioningUtils.LookFromToAt(transform.position, predictedTargetDirection);
         else
