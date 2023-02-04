@@ -3,6 +3,7 @@
 
 /// <summary>
 /// Note: it is easier to instantiate this with <see cref="instantiateEntityProgressChangerUnchanger(EnemyEntity, float, float, float)"/>
+/// Keep in mind that stacking instances of this will also cause misbehavior.
 /// </summary>
 class EntityProgressChangerUnchanger : MonoBehaviour
 {
@@ -24,6 +25,7 @@ class EntityProgressChangerUnchanger : MonoBehaviour
 
     private void Start()
     {
+
         originalProgressPerSecond = EnemyEntityToSlow.ProgressPerSecond;
 
         EnemyEntityToSlow.ProgressPerSecond = originalProgressPerSecond * progressChangeFactor;
@@ -42,7 +44,6 @@ class EntityProgressChangerUnchanger : MonoBehaviour
 
     public static EntityProgressChangerUnchanger instantiateEntityProgressChangerUnchanger(EnemyEntity enemyEntity, float progressChangeFactor, float durationSeconds)
     {
-
         EntityProgressChangerUnchanger entityProgressChangerUnchanger = enemyEntity.gameObject.AddComponent<EntityProgressChangerUnchanger>();
         entityProgressChangerUnchanger.startTime = Time.time;
         entityProgressChangerUnchanger.progressChangeFactor = progressChangeFactor;

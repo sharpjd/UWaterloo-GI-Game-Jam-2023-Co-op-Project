@@ -86,8 +86,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddToTargetTrackerAtStart: 0
+  currentVelocityPerSecond: 0
+  currentVelocityPerSecondVec: {x: 0, y: 0}
   health: 2
   essence: 500
+  progressPerSecond: 0.01
+  currentProgress: 0
   damage: 10
 --- !u!1 &8636131197875144572
 GameObject:

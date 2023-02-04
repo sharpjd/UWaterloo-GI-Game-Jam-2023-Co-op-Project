@@ -22,11 +22,15 @@ public class AppleProjectile : ProjectileEntity
             IHittable hittable = (IHittable)entity;
             hittable.OnDamage(damage);
 
-            if(entity is EnemyEntity)
+            if (entity is EnemyEntity)
             {
-                EntityProgressChangerUnchanger.instantiateEntityProgressChangerUnchanger(
+                //prevent stacking
+                if (entity.GetComponent<EntityProgressChangerUnchanger>() == null)
+                { 
+                    EntityProgressChangerUnchanger.instantiateEntityProgressChangerUnchanger(
                     (EnemyEntity)entity, knockbackProgressFactor, knockbackDurationSeconds
-                );
+                    );
+                }
             }
 
             OnDestruction();
