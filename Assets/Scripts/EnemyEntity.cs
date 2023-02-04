@@ -16,6 +16,9 @@ public class EnemyEntity : Entity, IHittable
     [SerializeField]
     float progressPerSecond = 0.05f;
 
+    [SerializeField]
+    float currentProgress = 0;
+
     public int damage;
 
 
@@ -27,6 +30,7 @@ public class EnemyEntity : Entity, IHittable
     {
         base.Start();
         GameHandler.instance.entityTracker.AddToTracker(this);
+        transform.position = GameHandler.instance.mapPositioner.GetPositionOnMapByProgress(0);
     }
 
     public virtual void OnDamage(int damage)
@@ -37,6 +41,13 @@ public class EnemyEntity : Entity, IHittable
             Debug.Log("I am dead");
             Die();
         }
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        currentProgress += progressPerSecond * Time.deltaTime;
+        transform.position = GameHandler.instance.mapPositioner.GetPositionOnMapByProgress(currentProgress);
     }
 
     public virtual void Die()
