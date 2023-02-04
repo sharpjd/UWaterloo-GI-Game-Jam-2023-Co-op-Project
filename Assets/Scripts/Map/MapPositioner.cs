@@ -83,7 +83,7 @@ public class MapPositioner : MonoBehaviour
             if(deltaDistance < 0)
             {
                 point1 = MapPathPoints[i];
-                point1 = MapPathPoints[i+1];
+                point2 = MapPathPoints[i+1];
                 break;
             } else
             {

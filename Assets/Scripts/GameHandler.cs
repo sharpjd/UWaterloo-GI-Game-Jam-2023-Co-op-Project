@@ -12,6 +12,8 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+
         if (entityTracker == null)
             Debug.LogError("Missing EntityTracker instance");
         if (mapPositioner == null)
