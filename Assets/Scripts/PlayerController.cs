@@ -7,11 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController playerController;
 
+    [HideInInspector]
     public TowerEntity PurchasedEntity;
 
     [SerializeField]
     GameObject shopMenu;
+    [SerializeField]
     Button button;
+    [SerializeField]
     Image hoverImage;
 
     void Awake()
@@ -23,6 +26,12 @@ public class PlayerController : MonoBehaviour
     {
         shopMenu.SetActive(false);
         button.onClick.AddListener(ToggleShop);
+        hoverImage.gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        button.onClick.RemoveAllListeners();
     }
 
     // Update is called once per frame
@@ -37,6 +46,8 @@ public class PlayerController : MonoBehaviour
         {
             hoverImage.gameObject.SetActive(true);
             hoverImage.sprite = PurchasedEntity.towerSprite;
+
+            hoverImage.gameObject.transform.position = Input.mousePosition;
         } else
         {
             hoverImage.gameObject.SetActive(false);
