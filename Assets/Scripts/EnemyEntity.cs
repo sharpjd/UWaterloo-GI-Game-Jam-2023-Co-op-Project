@@ -17,6 +17,11 @@ public class EnemyEntity : Entity, IHittable
 
     public int Health { get => health; set { health = value; } }
 
+    private void Start()
+    {
+        GameHandler.instance.entityTracker.AddToTracker(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -31,6 +36,7 @@ public class EnemyEntity : Entity, IHittable
     public void Die()
     { 
         GameHandler.instance.GainEssence(essence);
+        GameHandler.instance.entityTracker.RemoveFromTracker(this);
         Destroy(gameObject);
     }
 
