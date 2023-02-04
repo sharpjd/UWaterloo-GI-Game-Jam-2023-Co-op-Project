@@ -37,6 +37,11 @@ public class MapPositioner : MonoBehaviour
         }
         MapPathPoints = new List<MapPathPoint>(FindObjectsOfType<MapPathPoint>());
 
+        foreach(MapPathPoint mapPathPoint in MapPathPoints)
+        {
+            Debug.Log(mapPathPoint.NumberInPointSequence + ", " + mapPathPoint.gameObject.transform.position, mapPathPoint);
+        }
+
         //find the sum of the distance between all points and the ratio of distance/percentage
         for (int i = 1; i < MapPathPoints.Count; i++)
         {
