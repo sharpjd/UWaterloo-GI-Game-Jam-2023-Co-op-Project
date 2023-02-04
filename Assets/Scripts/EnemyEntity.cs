@@ -17,7 +17,6 @@ public class EnemyEntity : Entity, IHittable
 
     public int Hitpoints { get => health; set { health = value; } }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ProjectileEntity projectileController = collision.gameObject.GetComponent<ProjectileEntity>();

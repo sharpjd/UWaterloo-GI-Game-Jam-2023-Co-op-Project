@@ -6,7 +6,13 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
 
-    List<IEntityModule> entityModules = new();
+    List<IEntityExtension> entityExtensions = new();
+
+    public bool AddEntityExtension(IEntityExtension entityExtension)
+    {
+        entityExtensions.Add(entityExtension);
+        return true;
+    }
 
     /*
     Texture2D texture2D;
