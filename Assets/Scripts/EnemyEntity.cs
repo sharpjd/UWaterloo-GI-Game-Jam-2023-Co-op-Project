@@ -13,9 +13,15 @@ public class EnemyEntity : Entity, IHittable
     [SerializeField]
     int essence;
 
+    [SerializeField]
+    float progressPerSecond = 0.05f;
+
     public int damage;
 
+
+
     public int Health { get => health; set { health = value; } }
+    public float ProgressPerSecond { get => progressPerSecond; set => progressPerSecond = value; }
 
     public override void Start()
     {
