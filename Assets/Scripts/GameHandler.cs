@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameHandler : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameHandler : MonoBehaviour
 
     public static GameHandler instance;
 
+    public TMP_Text EssenceText;
     public EntityTracker entityTracker;
     public MapPositioner mapPositioner;
 
@@ -25,7 +27,7 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        EssenceText.SetText(Essence.ToString());
     }
 
     // Update is called once per frame
@@ -44,9 +46,16 @@ public class GameHandler : MonoBehaviour
         if (Essence >= amount)
         {
             Essence -= amount;
+            EssenceText.SetText(Essence.ToString());
             return true;
         }
 
         return false;
+    }
+
+    public void GainEssence(int amount)
+    {
+        Essence += amount;
+        EssenceText.SetText(Essence.ToString());
     }
 }

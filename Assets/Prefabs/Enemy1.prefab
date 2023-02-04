@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  essence: 500
 --- !u!1 &8636131197875144572
 GameObject:
   m_ObjectHideFlags: 0

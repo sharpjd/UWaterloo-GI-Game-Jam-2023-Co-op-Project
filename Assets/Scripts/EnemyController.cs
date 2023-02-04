@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     int health;
 
+    [SerializeField]
+    int essence;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ProjectileController projectileController = collision.gameObject.GetComponent<ProjectileController>();
@@ -22,6 +25,7 @@ public class EnemyController : MonoBehaviour
 
     void Die()
     {
+        GameHandler.instance.GainEssence(essence);
         Destroy(gameObject);
     }
 
