@@ -15,7 +15,7 @@ public class MapPathTester : MonoBehaviour
     void Start()
     {
         currentProgress = initialProgress;
-        transform.position = GameHandler.instance.mapPositioner.firstMapPathPoint.transform.position;
+        transform.position = GameHandler.instance.mapPositioner.FirstMapPathPoint.transform.position;
     }
 
     // Update is called once per frame

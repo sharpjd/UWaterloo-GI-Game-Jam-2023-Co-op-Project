@@ -10,7 +10,11 @@ public class MapPositioner : MonoBehaviour
 
     List<MapPathPoint> MapPathPoints= new List<MapPathPoint>();
 
-    public MapPathPoint firstMapPathPoint;
+    private MapPathPoint firstMapPathPoint;
+    private MapPathPoint lastMapPathPoint;
+
+    public MapPathPoint FirstMapPathPoint { get => firstMapPathPoint; }
+    public MapPathPoint LastMapPathPoint { get => lastMapPathPoint; }
 
     private void Awake()
     {
@@ -37,6 +41,8 @@ public class MapPositioner : MonoBehaviour
         }
         MapPathPoints = new List<MapPathPoint>(sortedMapPathPoints);
         
+        lastMapPathPoint = MapPathPoints[MapPathPoints.Count - 1];
+
         /*
         foreach(MapPathPoint mapPathPoint in MapPathPoints)
         {
@@ -54,21 +60,31 @@ public class MapPositioner : MonoBehaviour
 
     }
 
+    //TODO if there is time: Optimize this by doing a calculation of deltas, storing it in an array,
+    // then using simple loops and if statement bounds to return the position
     /// <summary>
     /// </summary>
     /// <param name="progress">The percentage progress; 0.0 representing 0% and 1.0 representing 100%</param>
     /// <returns></returns>
     public Vector2 GetPositionOnMapByProgress(float progress)
     {
+        if (progress >= 1.0f)
+        {
+            return lastMapPathPoint.transform.position;
+        }
+
         //total distance along the line composed of all the linear lines
         float distance = sumOfDistance * progress;
-
-        float progressRemaining = progress;
 
         //represents a linear line between these two points
         MapPathPoint point1 = null;
         MapPathPoint point2 = null;
 
+        Debug.Log("Distance and percentage: " + distance + ", " + progress);
+
+        //Find the two points the progress is supposed to be in between 
+        float progressRemaining = progress;
+        float distanceRemaining = distance;
         for (int i = 0; i < MapPathPoints.Count-1; i++)
         {
 
@@ -77,8 +93,8 @@ public class MapPositioner : MonoBehaviour
                 Debug.LogError("Missing map path point " + i);
             }
 
-            //this is the distance between the current point and the next, starting from point 0
-            float deltaDistance = distance - Vector2.Distance(
+            //this is the distance between the current point and the next, starting from point 
+            float deltaDistance = Vector2.Distance(
                     MapPathPoints[i].gameObject.transform.position,
                     MapPathPoints[i+1].gameObject.transform.position
                     );
@@ -87,17 +103,15 @@ public class MapPositioner : MonoBehaviour
             //then the progress is between the following two points
             //Debug.Log(deltaDistance);
             Debug.Log("DeltaDistance: " + deltaDistance);
-            if (deltaDistance < 0)
+            distanceRemaining -= deltaDistance;
+            if (distanceRemaining < 0)
             {
                 point1 = MapPathPoints[i];
                 point2 = MapPathPoints[i+1];
                 break;
-            } else
-            {
-                //else, just keep the loop going
-                distance -= deltaDistance;
-                progressRemaining -= deltaDistance / sumOfDistance;
             }
+            progressRemaining -= deltaDistance / sumOfDistance;
+            
         }
 
         //A nullreference will be thrown here if the above loop is not working correctly
@@ -106,16 +120,16 @@ public class MapPositioner : MonoBehaviour
         Debug.DrawLine(point1.transform.position, point2.transform.position);
         Debug.Log("1: " + point1.transform.position, point1);
         Debug.Log("2: " + point2.transform.position, point2);
-        Debug.Log("Progress Remaining: " + progressRemaining);
+        Debug.Log("Progress Remaining Delta: " + progressRemaining);
 
+        //line between point 1 and point 2
         Vector2 dir = point2.transform.position - point1.transform.position;
         dir.Normalize();
+        dir *= sumOfDistance * progressRemaining;
 
-        dir *= (progressRemaining * sumOfDistance);
+        return dir + (Vector2)point1.transform.position;
 
-        //Debug.Log("Dir: " + dir);
 
-        return (Vector2)point1.transform.position + dir;
     }
 
 
