@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CutsceneManager : MonoBehaviour
@@ -32,6 +33,9 @@ public class CutsceneManager : MonoBehaviour
         if (frames.Length - 1 > index)
         {
             StartCoroutine(ShowFrame(frames, index + 1));
+        } else
+        {
+            SceneManager.LoadScene("Frank");
         }
         StartCoroutine("FadeIn");
     }

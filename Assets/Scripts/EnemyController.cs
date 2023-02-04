@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     int essence;
 
+    public int damage;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         ProjectileController projectileController = collision.gameObject.GetComponent<ProjectileController>();

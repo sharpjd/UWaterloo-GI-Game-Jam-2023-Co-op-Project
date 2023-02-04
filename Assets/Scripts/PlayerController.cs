@@ -58,4 +58,14 @@ public class PlayerController : MonoBehaviour
     {
         shopMenu.SetActive(!shopMenu.activeSelf);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyController enemyController = collision.gameObject.GetComponent<EnemyController>();
+        if (enemyController != null)
+        {
+            GameHandler.instance.LoseHealth(enemyController.damage);
+            Destroy(enemyController.gameObject);
+        }
+    }
 }
