@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+
+    /*
+    Texture2D texture2D;
+    Physics2D physics2D;
+    */
+
+    private void Awake()
+    {
+        /*
+        texture2D = GetComponent<Texture2D>();
+        physics2D = GetComponent<Physics2D>();
+        */
+    }
+
     // Start is called before the first frame update
     void Start()
     {
