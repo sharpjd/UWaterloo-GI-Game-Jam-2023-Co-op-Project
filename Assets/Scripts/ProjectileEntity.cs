@@ -16,7 +16,12 @@ public class ProjectileEntity : Entity
 
     float firedTime;
 
-    public virtual void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        OnHit(collision);
+    }
+
+    public virtual void OnHit(Collider2D collision)
     {
         Entity entity = collision.gameObject.GetComponent<Entity>();
         if (entity is IHittable)
@@ -24,7 +29,7 @@ public class ProjectileEntity : Entity
             IHittable hittable = (IHittable)entity;
             hittable.OnDamage(damage);
             OnDestruction();
-        } 
+        }
     }
 
     public virtual void OnDestruction()
