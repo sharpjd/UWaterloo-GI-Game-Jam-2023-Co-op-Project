@@ -86,7 +86,8 @@ public class MapPositioner : MonoBehaviour
             //this point and the next point is less than zero,
             //then the progress is between the following two points
             //Debug.Log(deltaDistance);
-            if(deltaDistance < 0)
+            Debug.Log("DeltaDistance: " + deltaDistance);
+            if (deltaDistance < 0)
             {
                 point1 = MapPathPoints[i];
                 point2 = MapPathPoints[i+1];
@@ -105,6 +106,7 @@ public class MapPositioner : MonoBehaviour
         Debug.DrawLine(point1.transform.position, point2.transform.position);
         Debug.Log("1: " + point1.transform.position, point1);
         Debug.Log("2: " + point2.transform.position, point2);
+        Debug.Log("Progress Remaining: " + progressRemaining);
 
         Vector2 dir = point2.transform.position - point1.transform.position;
         dir.Normalize();
