@@ -1,18 +1,43 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class EnemyEntity : MonoBehaviour
+public class EnemyEntity : Entity, IHittable
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    int health;
+
+    [SerializeField]
+    int essence;
+
+    public int damage;
+
+    public int Hitpoints { get => health; set { health = value; } }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        ProjectileEntity projectileController = collision.gameObject.GetComponent<ProjectileEntity>();
+        if (projectileController != null)
+        {
+            OnDamage(projectileController.damage);
+            projectileController.OnDestruction();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDamage(int damage)
     {
-        
+        health -= damage;
+        if (health <= 0) Die();
     }
+
+    public void Die()
+    { 
+        GameHandler.instance.GainEssence(essence);
+        Destroy(gameObject);
+    }
+
 }

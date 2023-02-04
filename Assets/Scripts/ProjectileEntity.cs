@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileEntity : MonoBehaviour
+public class ProjectileEntity : Entity
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    public int damage;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.gameObject.tag.Equals("enemy"))
+        {
+            // Do stuff
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDestruction()
     {
-        
+        //maybe a hit animation? (could be as simple as a brighten, large, and fade out)
+        Destroy(gameObject);
     }
+
 }

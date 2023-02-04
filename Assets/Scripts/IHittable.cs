@@ -3,28 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets
 {
     internal interface IHittable
     {
 
-        float Hitpoints
+        int Hitpoints
         {
             get; set;
         }
 
-        void OnDeath()
-        {
+        public void Die();
 
-        }
-
-        public void OnHit(float damage)
+        public void OnDamage(int damage)
         {
             Hitpoints -= damage;
             if(Hitpoints < 0)
             {
-                OnDeath();
+                Die();
             }
         }
 
