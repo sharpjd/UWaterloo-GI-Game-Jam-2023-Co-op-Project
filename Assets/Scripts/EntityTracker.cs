@@ -25,4 +25,6 @@ public class EntityTracker : MonoBehaviour
         //unfinished
         return true;
     }
+
+    public Entity GetClosestTarget()
 }

@@ -15,16 +15,11 @@ public class EnemyEntity : Entity, IHittable
 
     public int damage;
 
-    public int Hitpoints { get => health; set { health = value; } }
+    public int Health { get => health; set { health = value; } }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        ProjectileEntity projectileController = collision.gameObject.GetComponent<ProjectileEntity>();
-        if (projectileController != null)
-        {
-            OnDamage(projectileController.damage);
-            projectileController.OnDestruction();
-        }
+        
     }
 
     public void OnDamage(int damage)

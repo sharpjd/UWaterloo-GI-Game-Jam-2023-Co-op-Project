@@ -10,7 +10,7 @@ namespace Assets
     internal interface IHittable
     {
 
-        int Hitpoints
+        int Health
         {
             get; set;
         }
@@ -19,8 +19,8 @@ namespace Assets
 
         public void OnDamage(int damage)
         {
-            Hitpoints -= damage;
-            if(Hitpoints < 0)
+            Health -= damage;
+            if(Health < 0)
             {
                 Die();
             }

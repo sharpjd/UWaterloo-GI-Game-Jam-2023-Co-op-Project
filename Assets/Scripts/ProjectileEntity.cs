@@ -1,3 +1,4 @@
+using Assets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,15 @@ public class ProjectileEntity : Entity
     [SerializeField]
     public int damage;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag.Equals("enemy"))
+        Entity entity = collision.gameObject.GetComponent<Entity>();
+        if (entity is IHittable)
         {
-            // Do stuff
-        }
+            IHittable hittable = (IHittable)entity;
+            hittable.OnDamage(damage);
+            OnDestruction();
+        } 
     }
 
     public void OnDestruction()
