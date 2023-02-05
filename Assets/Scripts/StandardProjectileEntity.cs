@@ -14,6 +14,10 @@ public class StandardProjectileEntity : Entity
 
     protected float firedTime;
 
+    public float range;
+    [SerializeField]
+    float remainingRange;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         OnHit(collision.gameObject);
@@ -39,6 +43,7 @@ public class StandardProjectileEntity : Entity
     public override void Start()
     {
         base.Start();
+        remainingRange = range;
         firedTime = Time.time;
         PostStart();
     }
@@ -56,6 +61,12 @@ public class StandardProjectileEntity : Entity
         if (Time.time - firedTime > lifetimeSeconds)
         {
             OnDestruction();
+        }
+
+        remainingRange -= velocityPerSecond * Time.deltaTime;
+        if(remainingRange < 0 )
+        {
+            //OnDestruction();
         }
 
         PredictCollision();
