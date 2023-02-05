@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3265944420066165663}
   - component: {fileID: 1765984525971717404}
+  - component: {fileID: 4406213869992104516}
   m_Layer: 0
   m_Name: CantPlaceHere
   m_TagString: CantPlaceHere
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407456226719048028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.615, y: 0.498, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,3 +49,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.24
+--- !u!114 &4406213869992104516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407456226719048028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac0555b7f2d7b5409a3af2db332cf6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentlyOverlapping: 0
+  allowOverlap: 0
+  followMouse: 0

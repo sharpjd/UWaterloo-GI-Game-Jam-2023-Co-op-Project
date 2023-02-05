@@ -29,7 +29,6 @@ public class ShopItem : MonoBehaviour
         if (GameHandler.instance.PayEssence(price))
         {
             PlayerController.playerController.PurchasedEntity = ThingToBuy;
-
         }
     }
 }

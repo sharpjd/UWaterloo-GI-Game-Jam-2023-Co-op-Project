@@ -9,7 +9,9 @@ public class TowerEntity : Entity
 {
     // Start is called before the first frame update
 
-    
+    public GameObject CantPlaceHereHitbox;
+    [SerializeField]
+    CantPlaceHere cantPlaceHereScript;
 
     public Sprite towerSprite;
 
@@ -32,6 +34,19 @@ public class TowerEntity : Entity
     [SerializeField]
     bool canFire = true;
     public bool CanFire { get => canFire; set => canFire = value; }
+    public CantPlaceHere CantPlaceHereHitbox1 { get => cantPlaceHereScript; }
+
+    public override void Awake()
+    {
+        base.Awake();
+        cantPlaceHereScript = CantPlaceHereHitbox?.gameObject.GetComponent<CantPlaceHere>();
+
+        if(cantPlaceHereScript == null)
+        {
+            Debug.LogError("Missing CantPlaceHere reference");
+        }
+
+    }
 
     public override void Start()
     {

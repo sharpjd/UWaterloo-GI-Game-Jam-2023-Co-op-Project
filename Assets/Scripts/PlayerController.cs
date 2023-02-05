@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     SpriteRenderer hoverImage;
 
+    GameObject cantPlaceHereHitbox;
+
     void Awake()
     {
         playerController = this;
@@ -35,6 +37,8 @@ public class PlayerController : MonoBehaviour
         button.onClick.RemoveAllListeners();
     }
 
+
+    Color originalSpriteColor;
     // Update is called once per frame
     void Update()
     {
@@ -43,15 +47,38 @@ public class PlayerController : MonoBehaviour
             ToggleShop();
         }
 
-        if (Input.GetButtonDown("Set"))
+        if (Input.GetButtonDown("Set") && PurchasedEntity != null)
         {
-            Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
-
-            PurchasedEntity = null;
+            if (!cantPlaceHereHitbox.GetComponent<CantPlaceHere>().CurrentlyOverlapping)
+            {
+                Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
+                Destroy(cantPlaceHereHitbox);
+                cantPlaceHereHitbox = null;
+                PurchasedEntity = null;
+            }
         }
 
         if (PurchasedEntity != null)
         {
+
+            //this only instantiates and renders the can't place here effect
+            if (cantPlaceHereHitbox == null) {
+                cantPlaceHereHitbox = Instantiate(PurchasedEntity.GetComponentInChildren<CantPlaceHere>().gameObject);
+            }
+            CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponentInChildren<CantPlaceHere>();
+            cantPlaceHere.FollowMouse = true;
+
+            if (cantPlaceHere.AllowOverlap == false
+                && cantPlaceHere.CurrentlyOverlapping
+                )
+            {
+                PurchasedEntity.SpriteRenderer.color = Color.red;
+            }
+            else
+            {
+                PurchasedEntity.SpriteRenderer.color = Color.white;
+            }
+
             hoverImage.enabled = true;
             hoverImage.sprite = PurchasedEntity.towerSprite;
 
