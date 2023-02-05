@@ -116,8 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   AddToTargetTrackerAtStart: 0
-  currentVelocityPerSecond: 0
+  currentVelocityPerSecond: 1
   currentVelocityPerSecondVec: {x: 0, y: 0}
-  damage: 100
-  velocityPerSecond: 0.2
+  damage: 100000
+  velocityPerSecond: 1
   lifetimeSeconds: 10

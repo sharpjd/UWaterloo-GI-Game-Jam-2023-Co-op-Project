@@ -118,6 +118,6 @@ MonoBehaviour:
   AddToTargetTrackerAtStart: 0
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
-  damage: 50
+  damage: 500000
   velocityPerSecond: 0.5
   lifetimeSeconds: 10
