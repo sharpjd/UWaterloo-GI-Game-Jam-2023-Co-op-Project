@@ -15,9 +15,13 @@ class EntityProgressChangerUnchanger : MonoBehaviour
     float progressChangeFactor;
     [SerializeField]
     float durationSeconds;
+    [SerializeField]
+    SlowType slowType;
 
     public EnemyEntity EnemyEntityToSlow;
 
+    public SlowType SlowType { get => slowType;}
+     
     private void Awake()
     {
         enabled = false;   
@@ -42,7 +46,7 @@ class EntityProgressChangerUnchanger : MonoBehaviour
         }
     }
 
-    public static EntityProgressChangerUnchanger instantiateEntityProgressChangerUnchanger(EnemyEntity enemyEntity, float progressChangeFactor, float durationSeconds)
+    public static EntityProgressChangerUnchanger instantiateEntityProgressChangerUnchanger(EnemyEntity enemyEntity, float progressChangeFactor, float durationSeconds, SlowType slowType)
     {
         EntityProgressChangerUnchanger entityProgressChangerUnchanger = enemyEntity.gameObject.AddComponent<EntityProgressChangerUnchanger>();
         entityProgressChangerUnchanger.startTime = Time.time;
@@ -56,4 +60,10 @@ class EntityProgressChangerUnchanger : MonoBehaviour
         return entityProgressChangerUnchanger;
     }
 
+}
+
+public enum SlowType
+{
+    AppleTree,
+    MapleTree
 }
