@@ -13,10 +13,10 @@ public class TowerEntity : Entity
 
     [SerializeField]
     GameObject projectileToInstantiate;
-    [SerializeField]
-    float range = 3f;
-    [SerializeField]
-    float fireRateSecs = 0.5f;
+
+    public float range = 3f;
+    public float fireRateSecs = 0.5f;
+
     [SerializeField]
     bool debugOutput = false;
     [SerializeField]

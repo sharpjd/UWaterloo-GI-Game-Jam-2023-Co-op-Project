@@ -62,4 +62,19 @@ public class EntityTracker : MonoBehaviour
         }
         return closestEntity;
     }
+
+    public List<TowerEntity> GetTowersInArea(Vector3 position, float radius)
+    {
+        List<TowerEntity> towersInArea = new();
+        foreach(Entity entity in entities) 
+        {
+            if (entity is not TowerEntity) continue;
+            if (Vector2.Distance(position, entity.gameObject.transform.position) < radius)
+            {
+                towersInArea.Add(entity as TowerEntity);
+            }
+        }
+
+        return towersInArea;
+    }
 }
