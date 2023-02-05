@@ -21,7 +21,7 @@ public class WiseTree : TowerEntity
 
         foreach (TowerEntity tower in towersInRange)
         {
-            tower.fireRateSecs += buffAmount;
+            tower.fireRateSecs /= buffAmount;
         }
 
     }
@@ -31,7 +31,7 @@ public class WiseTree : TowerEntity
     {
         foreach (TowerEntity tower in towersInRange)
         {
-            tower.fireRateSecs -= buffAmount;
+            tower.fireRateSecs *= buffAmount;
         }
     }
 }
