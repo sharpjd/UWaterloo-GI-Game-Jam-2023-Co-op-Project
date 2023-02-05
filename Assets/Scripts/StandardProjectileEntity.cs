@@ -66,7 +66,7 @@ public class StandardProjectileEntity : Entity
         remainingRange -= velocityPerSecond * Time.deltaTime;
         if(remainingRange < 0 )
         {
-            //OnDestruction();
+            OnDestruction();
         }
 
         PredictCollision();

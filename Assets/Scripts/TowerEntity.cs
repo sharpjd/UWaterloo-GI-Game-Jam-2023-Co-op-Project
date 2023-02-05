@@ -13,6 +13,7 @@ public class TowerEntity : Entity
     public Sprite towerSprite;
 
     public GameObject RangeIndicator;
+    Collider2D mouseoverCollider;
 
     [SerializeField]
     protected GameObject projectileToInstantiate;
@@ -37,7 +38,12 @@ public class TowerEntity : Entity
 
     public override void Awake()
     {
+
+        mouseoverCollider = gameObject.AddComponent<BoxCollider2D>();
+
         CantPlaceHereHitbox = gameObject.GetComponentInChildren<CantPlaceHere>().gameObject;
+
+        RangeIndicator = transform.Find("RangeIndicator").gameObject;
 
         base.Awake();
         cantPlaceHereScript = CantPlaceHereHitbox?.gameObject.GetComponent<CantPlaceHere>();
