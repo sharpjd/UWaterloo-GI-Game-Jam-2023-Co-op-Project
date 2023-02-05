@@ -50,7 +50,7 @@ class EnemyEntityEffectApplier : MonoBehaviour
         }
     }
 
-    public static EnemyEntityEffectApplier instantiateEnemyEntityEffectApplier (EnemyEntity enemyEntity, Action actionBefore, Action actionAfter, float durationSeconds)
+    public static EnemyEntityEffectApplier instantiateEnemyEntityEffectApplier(EnemyEntity enemyEntity, Action actionBefore, Action actionAfter, float durationSeconds)
     {
         EnemyEntityEffectApplier enemyEffectApplier = enemyEntity.gameObject.AddComponent<EnemyEntityEffectApplier>();
         enemyEffectApplier.startTime = Time.time;

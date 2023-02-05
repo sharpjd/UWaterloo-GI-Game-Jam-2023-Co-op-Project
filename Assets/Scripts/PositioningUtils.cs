@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 using Transform = UnityEngine.Transform;
 
 public class PositioningUtils
 {
-    
+
     /*
     public static Vector3 LookFromToAt(Vector3 position, Vector3 target)
     {

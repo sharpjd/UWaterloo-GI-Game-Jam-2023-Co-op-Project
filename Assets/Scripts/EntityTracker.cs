@@ -1,6 +1,4 @@
 using Assets;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,18 +11,18 @@ public class EntityTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public bool AddToTracker(Entity entity)
     {
-        if(entities.Contains(entity))
+        if (entities.Contains(entity))
         {
             return false;
         }
@@ -53,7 +51,7 @@ public class EntityTracker : MonoBehaviour
                 continue;
             if (entity is not EnemyEntity && entity is not IHittable)
                 continue;
-            
+
             if (distance < closest)
             {
                 closest = distance;
@@ -66,7 +64,7 @@ public class EntityTracker : MonoBehaviour
     public List<TowerEntity> GetTowersInArea(Vector3 position, float radius)
     {
         List<TowerEntity> towersInArea = new();
-        foreach(Entity entity in entities) 
+        foreach (Entity entity in entities)
         {
             Debug.Log(entity);
 

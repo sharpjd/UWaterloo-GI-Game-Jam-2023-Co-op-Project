@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class TheUltimateTree : TowerEntity
 {
     public override void FireProjectile(Entity target)
     {
         base.FireProjectile(target);
-        for (int i = -15; i <= 15; i+= 5)
+        for (int i = -15; i <= 15; i += 5)
         {
             FireAtAngle(target, i);
         }
@@ -33,4 +30,3 @@ public class TheUltimateTree : TowerEntity
         projectile.SetActive(true);
     }
 }
- 

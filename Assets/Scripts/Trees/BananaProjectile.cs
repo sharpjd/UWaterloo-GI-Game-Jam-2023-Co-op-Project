@@ -1,7 +1,3 @@
-using Assets;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BananaProjectile : StandardProjectileEntity
@@ -22,12 +18,12 @@ public class BananaProjectile : StandardProjectileEntity
     public override void PostStart()
     {
         base.PostStart();
-        origin= transform.position;
+        origin = transform.position;
     }
 
     public override void Update()
     {
-        Vector2 pos = new Vector2(Mathf.Sin((Time.time - firedTime)*orbitSpeedMultiplier) * orbitRadius, Mathf.Cos((Time.time - firedTime) * orbitSpeedMultiplier) * orbitRadius);
+        Vector2 pos = new Vector2(Mathf.Sin((Time.time - firedTime) * orbitSpeedMultiplier) * orbitRadius, Mathf.Cos((Time.time - firedTime) * orbitSpeedMultiplier) * orbitRadius);
 
         transform.position = origin + pos;
 

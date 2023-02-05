@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CantPlaceHere : MonoBehaviour
@@ -17,7 +15,7 @@ public class CantPlaceHere : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(followMouse)
+        if (followMouse)
         {
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + (Vector3)MouseFollowOffset;
         }

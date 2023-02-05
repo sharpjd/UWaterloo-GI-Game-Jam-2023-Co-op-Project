@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AvocadoTree : TowerEntity
@@ -16,8 +14,8 @@ public class AvocadoTree : TowerEntity
     public override void Update()
     {
         // Update is called once per frame
-        
-        
+
+
 
         base.Update();
         if (Time.time - lastTimeDispense > DispenseRateSecs)

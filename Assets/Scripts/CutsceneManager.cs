@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -33,14 +31,15 @@ public class CutsceneManager : MonoBehaviour
         if (frames.Length - 1 > index)
         {
             StartCoroutine(ShowFrame(frames, index + 1));
-        } else
+        }
+        else
         {
             SceneManager.LoadScene("Frank");
         }
         StartCoroutine("FadeIn");
     }
 
-    IEnumerator FadeOut() 
+    IEnumerator FadeOut()
     {
         Color color = image.material.color;
         for (float alpha = 1f; alpha >= 0; alpha -= 0.05f)

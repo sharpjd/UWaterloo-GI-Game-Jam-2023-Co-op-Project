@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +37,7 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public int GetEssence()
@@ -74,7 +71,7 @@ public class GameHandler : MonoBehaviour
     public void LoseHealth(int amount)
     {
         health -= amount;
-        HealthText.text = health.ToString() ;
+        HealthText.text = health.ToString();
         if (health <= 0)
         {
             Debug.Log("You deaad");

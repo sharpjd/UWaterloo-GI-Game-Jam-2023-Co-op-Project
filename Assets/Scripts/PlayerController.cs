@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,7 +62,8 @@ public class PlayerController : MonoBehaviour
         {
 
             //this only instantiates and renders the can't place here effect
-            if (cantPlaceHereHitbox == null) {
+            if (cantPlaceHereHitbox == null)
+            {
                 cantPlaceHereHitbox = Instantiate(PurchasedEntity.GetComponentInChildren<CantPlaceHere>().gameObject);
                 mouseFollowOffset = cantPlaceHereHitbox.transform.position;
             }
@@ -85,7 +84,8 @@ public class PlayerController : MonoBehaviour
             hoverImage.sprite = PurchasedEntity.towerSprite;
 
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        } else
+        }
+        else
         {
             hoverImage.enabled = false;
         }

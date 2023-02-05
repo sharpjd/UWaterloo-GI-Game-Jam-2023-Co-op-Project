@@ -1,7 +1,4 @@
 using Assets;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class EnemyEntity : Entity, IHittable
@@ -51,12 +48,13 @@ public class EnemyEntity : Entity, IHittable
         PostUpdate();
     }
 
-    public virtual void PostUpdate() {
+    public virtual void PostUpdate()
+    {
 
     }
 
     public virtual void Die()
-    { 
+    {
         GameHandler.instance.GainEssence(essence);
         GameHandler.instance.entityTracker.RemoveFromTracker(this);
         Destroy(gameObject);

@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerEffectApplier : MonoBehaviour
@@ -47,13 +45,13 @@ public class TowerEffectApplier : MonoBehaviour
         }
     }
 
-   public static TowerEffectApplier instantiateTowerEffectApplier(TowerEntity towerEntity, Action actionBefore, Action actionAfter, float durationSeconds)
+    public static TowerEffectApplier instantiateTowerEffectApplier(TowerEntity towerEntity, Action actionBefore, Action actionAfter, float durationSeconds)
     {
         TowerEffectApplier towerEffectApplier = towerEntity.gameObject.AddComponent<TowerEffectApplier>();
         towerEffectApplier.startTime = Time.time;
 
         towerEffectApplier.actionBefore = actionBefore;
-        towerEffectApplier.actionAfter  = actionAfter;
+        towerEffectApplier.actionAfter = actionAfter;
 
         towerEffectApplier.durationSeconds = durationSeconds;
 

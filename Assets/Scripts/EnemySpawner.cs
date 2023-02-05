@@ -26,13 +26,13 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale= timeScale;
+        Time.timeScale = timeScale;
         OnRoundStart();
     }
 
     void OnRoundStart()
     {
-        roundPoints = (int) (Mathf.Pow(round, 1.3f) * 2) + 3;
+        roundPoints = (int)(Mathf.Pow(round, 1.3f) * 2) + 3;
 
         StartCoroutine(DoRound());
     }
@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(SpawnEnemy() + UnityEngine.Random.Range(-1.0f, 1.0f));
         }
-    } 
+    }
 
     void OnRoundEnd()
     {
@@ -53,14 +53,14 @@ public class EnemySpawner : MonoBehaviour
             if (enemySpawnDatas[i].spawnChance <= 5) continue;
             float random = UnityEngine.Random.Range(0, enemySpawnDatas[i].spawnChance / 6);
             enemySpawnDatas[i].spawnChance -= random;
-            enemySpawnDatas[i+1].spawnChance += random;
+            enemySpawnDatas[i + 1].spawnChance += random;
         }
-    } 
+    }
 
     float SpawnEnemy()
     {
         float random = UnityEngine.Random.Range(0.0f, 100.0f);
-        foreach(EnemySpawnData enemySpawnData in enemySpawnDatas)
+        foreach (EnemySpawnData enemySpawnData in enemySpawnDatas)
         {
             if (random <= enemySpawnData.spawnChance)
             {
@@ -72,7 +72,7 @@ public class EnemySpawner : MonoBehaviour
             random -= enemySpawnData.spawnChance;
         }
         return 0.0f;
-    } 
+    }
 
     public void OnEnemyDie(EnemyEntity deadEnemy)
     {
