@@ -11,6 +11,9 @@ public class ShopItem : MonoBehaviour
     [SerializeField]
     TowerEntity ThingToBuy;
 
+    [SerializeField]
+    int price;
+
     void Start()
     {
         button.onClick.AddListener(onButtonClick);
@@ -23,7 +26,10 @@ public class ShopItem : MonoBehaviour
 
     void onButtonClick()
     {
-        // Remove currency
-        PlayerController.playerController.PurchasedEntity = ThingToBuy;
+        if (GameHandler.instance.PayEssence(price))
+        {
+            PlayerController.playerController.PurchasedEntity = ThingToBuy;
+
+        }
     }
 }
