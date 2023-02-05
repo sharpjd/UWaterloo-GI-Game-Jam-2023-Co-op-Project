@@ -42,6 +42,12 @@ public class StandardProjectileEntity : Entity
     {
         base.Start();
         firedTime = Time.time;
+        PostStart();
+    }
+
+    public virtual void PostStart()
+    {
+
     }
 
     public override void Update()

@@ -19,9 +19,15 @@ public class BananaProjectile : StandardProjectileEntity
         OnHit(collision);
     }
 
+    public override void PostStart()
+    {
+        base.PostStart();
+        origin= transform.position;
+    }
+
     public override void Update()
     {
-        Vector2 pos = new Vector2(Mathf.Sin((Time.time - firedTime)*orbitSpeedMultiplier) * orbitRadius, Mathf.Sin((Time.time - firedTime)) * orbitSpeedMultiplier * orbitRadius);
+        Vector2 pos = new Vector2(Mathf.Sin((Time.time - firedTime)*orbitSpeedMultiplier) * orbitRadius, Mathf.Cos((Time.time - firedTime) * orbitSpeedMultiplier) * orbitRadius);
 
         transform.position = origin + pos;
 
