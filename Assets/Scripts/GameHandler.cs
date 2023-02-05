@@ -10,6 +10,8 @@ public class GameHandler : MonoBehaviour
     public static GameHandler instance;
 
     public Text EssenceText;
+    public Text HealthText;
+
     public EntityTracker entityTracker;
     public MapPositioner mapPositioner;
 
@@ -31,6 +33,7 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         EssenceText.text = Essence.ToString();
+        HealthText.text = health.ToString();
     }
 
     // Update is called once per frame
@@ -70,6 +73,7 @@ public class GameHandler : MonoBehaviour
     public void LoseHealth(int amount)
     {
         health -= amount;
+        HealthText.text = health.ToString() ;
         if (health <= 0)
         {
             Debug.Log("You deaad");
