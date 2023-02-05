@@ -112,8 +112,8 @@ MonoBehaviour:
   shotPrediction: 1
   isImmunetoStun: 0
   canFire: 1
-  buffRange: 10
-  buffAmount: 10
+  buffRange: 3
+  buffAmount: 5
 --- !u!1001 &2352840012293015886
 PrefabInstance:
   m_ObjectHideFlags: 0

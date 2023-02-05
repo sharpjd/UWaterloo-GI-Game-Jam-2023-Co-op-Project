@@ -106,7 +106,7 @@ MonoBehaviour:
   cantPlaceHereScript: {fileID: 0}
   towerSprite: {fileID: 21300000, guid: beddd730b0568dc4db63ac545c5304e8, type: 3}
   projectileToInstantiate: {fileID: 5589903892146597944, guid: 6bdb259bdd2c4e144bfb63fe3c502ae1, type: 3}
-  range: 3
+  range: 5
   fireRateSecs: 0.1
   debugOutput: 0
   shotPrediction: 1
