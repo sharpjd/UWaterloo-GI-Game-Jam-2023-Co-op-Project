@@ -98,15 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a550980bccaee054aa46e06e580d6ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
   AddToTargetTrackerAtStart: 0
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
-  damage: 1
+  damage: 64
   velocityPerSecond: 3
   lifetimeSeconds: 10
   knockbackProgressFactor: 0.5
   knockbackDurationSeconds: 5
-  slowType: 1
+  effectType: 0
 --- !u!58 &3417152327307534240
 CircleCollider2D:
   m_ObjectHideFlags: 0
