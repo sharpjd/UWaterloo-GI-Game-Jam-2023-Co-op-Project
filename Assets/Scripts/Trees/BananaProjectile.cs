@@ -35,6 +35,8 @@ public class BananaProjectile : StandardProjectileEntity
         {
             OnDestruction();
         }
+
+        PredictCollision();
     }
 
 

@@ -65,7 +65,7 @@ public class StandardProjectileEntity : Entity
         postUpdate();
     }
 
-    private void PredictCollision()
+    protected void PredictCollision()
     {
         int layermask = 1 << 2;
         layermask = ~layermask;
