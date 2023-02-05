@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentlyOverlapping: 0
-  allowOverlap: 0
   followMouse: 0
 --- !u!50 &4458662667439794781
 Rigidbody2D:

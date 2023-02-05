@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    Vector2 mouseFollowOffset;
     Color originalSpriteColor;
     // Update is called once per frame
     void Update()
@@ -65,8 +66,10 @@ public class PlayerController : MonoBehaviour
             //this only instantiates and renders the can't place here effect
             if (cantPlaceHereHitbox == null) {
                 cantPlaceHereHitbox = Instantiate(PurchasedEntity.GetComponentInChildren<CantPlaceHere>().gameObject);
+                mouseFollowOffset = cantPlaceHereHitbox.transform.position;
             }
             CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponentInChildren<CantPlaceHere>();
+            cantPlaceHere.MouseFollowOffset = mouseFollowOffset;
             cantPlaceHere.FollowMouse = true;
 
             if (cantPlaceHere.CurrentlyOverlapping)

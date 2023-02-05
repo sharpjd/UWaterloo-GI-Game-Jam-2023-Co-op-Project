@@ -12,12 +12,14 @@ public class CantPlaceHere : MonoBehaviour
     public bool CurrentlyOverlapping { get => currentlyOverlapping; }
     public bool FollowMouse { get => followMouse; set => followMouse = value; }
 
+    public Vector2 MouseFollowOffset;
+
     // Update is called once per frame
     void Update()
     {
         if(followMouse)
         {
-            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + (Vector3)MouseFollowOffset;
         }
     }
 
