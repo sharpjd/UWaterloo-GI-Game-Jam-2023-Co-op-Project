@@ -18,12 +18,12 @@ public class StandardProjectileEntity : Entity
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        OnHit(collision);
+        OnHit(collision.gameObject);
     }
 
-    public virtual void OnHit(Collider2D collision)
+    public virtual void OnHit(GameObject gameObject_)
     {
-        Entity entity = collision.gameObject.GetComponent<Entity>();
+        Entity entity = gameObject_.GetComponent<Entity>();
         if (entity is IHittable)
         {
             IHittable hittable = (IHittable)entity;
@@ -60,7 +60,22 @@ public class StandardProjectileEntity : Entity
             OnDestruction();
         }
 
+        PredictCollision();
+
         postUpdate();
+    }
+
+    private void PredictCollision()
+    {
+        int layermask = 1 << 2;
+        layermask = ~layermask;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(gameObject.transform.position, CurrentVelocityPerSecondVec.normalized, CurrentVelocityPerSecondVec.magnitude * Time.fixedDeltaTime, layermask);
+        //Debug.Log(hits.Length);
+        for (int i = 0; i < hits.Length; i++)
+        {
+            OnHit(hits[i].collider.gameObject);
+        }
     }
 
     public virtual void postUpdate()
