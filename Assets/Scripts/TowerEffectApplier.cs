@@ -24,16 +24,25 @@ public class TowerEffectApplier : MonoBehaviour
     private void Start()
     {
 
-        actionBefore.Invoke();
+        startEffect();
 
         startTime = Time.time;
+    }
+
+    public void startEffect()
+    {
+        actionBefore.Invoke();
+    }
+    public void endEffect()
+    {
+        actionAfter.Invoke();
     }
 
     private void Update()
     {
         if (Time.time - startTime > durationSeconds)
         {
-            actionAfter.Invoke();
+            endEffect();
             Destroy(this);
         }
     }

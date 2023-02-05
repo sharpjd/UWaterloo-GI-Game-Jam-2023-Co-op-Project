@@ -9,6 +9,8 @@ public class TowerEntity : Entity
 {
     // Start is called before the first frame update
 
+    
+
     public Sprite towerSprite;
 
     [SerializeField]
