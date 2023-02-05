@@ -15,6 +15,7 @@ public class GameHandler : MonoBehaviour
     public EntityTracker entityTracker;
     public MapPositioner mapPositioner;
 
+    [SerializeField]
     private int Essence = 0;
 
     private int health = 100;

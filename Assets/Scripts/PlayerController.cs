@@ -49,7 +49,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Set") && PurchasedEntity != null)
         {
-            if (!cantPlaceHereHitbox.GetComponent<CantPlaceHere>().CurrentlyOverlapping)
+            CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponent<CantPlaceHere>();
+            if (!cantPlaceHere.CurrentlyOverlapping)
             {
                 Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
                 Destroy(cantPlaceHereHitbox);
@@ -68,15 +69,13 @@ public class PlayerController : MonoBehaviour
             CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponentInChildren<CantPlaceHere>();
             cantPlaceHere.FollowMouse = true;
 
-            if (cantPlaceHere.AllowOverlap == false
-                && cantPlaceHere.CurrentlyOverlapping
-                )
+            if (cantPlaceHere.CurrentlyOverlapping)
             {
-                PurchasedEntity.SpriteRenderer.color = Color.red;
+                hoverImage.color = Color.red;
             }
             else
             {
-                PurchasedEntity.SpriteRenderer.color = Color.white;
+                hoverImage.color = Color.white;
             }
 
             hoverImage.enabled = true;

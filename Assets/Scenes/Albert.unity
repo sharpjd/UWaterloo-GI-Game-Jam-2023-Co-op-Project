@@ -2651,6 +2651,7 @@ MonoBehaviour:
   HealthText: {fileID: 198793984}
   entityTracker: {fileID: 755381568}
   mapPositioner: {fileID: 755381567}
+  Essence: 100
 --- !u!61 &755381565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5838,6 +5839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentlyOverlapping: 0
   allowOverlap: 0
+  followMouse: 0
 --- !u!1001 &3056044880484162460
 PrefabInstance:
   m_ObjectHideFlags: 0

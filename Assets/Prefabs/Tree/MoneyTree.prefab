@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d2c0566d0fe4b6b82cf28e4c4fe373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 3782956966444489976}
   AddToTargetTrackerAtStart: 1
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}

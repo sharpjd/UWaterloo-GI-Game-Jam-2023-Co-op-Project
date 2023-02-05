@@ -38,6 +38,8 @@ public class TowerEntity : Entity
 
     public override void Awake()
     {
+        CantPlaceHereHitbox = gameObject.GetComponentInChildren<CantPlaceHere>().gameObject;
+
         base.Awake();
         cantPlaceHereScript = CantPlaceHereHitbox?.gameObject.GetComponent<CantPlaceHere>();
 
@@ -64,7 +66,7 @@ public class TowerEntity : Entity
         if(Time.time - lastTimeFired > fireRateSecs) {
             OnProjectileFire();
             lastTimeFired= Time.time;
-            Debug.Log("fired");
+            //Debug.Log("fired");
         }
     }
 

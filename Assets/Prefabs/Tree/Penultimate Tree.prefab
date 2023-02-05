@@ -97,10 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fcdb5e885982c40a101eff81c94571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 8374917826801424164}
   AddToTargetTrackerAtStart: 0
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
+  CantPlaceHereHitbox: {fileID: 0}
+  cantPlaceHereScript: {fileID: 0}
   towerSprite: {fileID: 21300000, guid: 3621a93d102d3fb4baa900bf541af48a, type: 3}
   projectileToInstantiate: {fileID: 5589903892146597944, guid: 5253641e696adca4db74428f34f78c71, type: 3}
   range: 3

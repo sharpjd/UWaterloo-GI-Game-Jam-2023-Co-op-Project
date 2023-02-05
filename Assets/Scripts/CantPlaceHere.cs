@@ -8,12 +8,7 @@ public class CantPlaceHere : MonoBehaviour
     bool currentlyOverlapping = false;
 
     [SerializeField]
-    bool allowOverlap = false;
-
-    [SerializeField]
     bool followMouse = false;
-
-    public bool AllowOverlap { get => allowOverlap; set => allowOverlap = value; }
     public bool CurrentlyOverlapping { get => currentlyOverlapping; }
     public bool FollowMouse { get => followMouse; set => followMouse = value; }
 
@@ -25,18 +20,28 @@ public class CantPlaceHere : MonoBehaviour
             transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log("OVERLAPPING");
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag != "CantPlaceHere") return;
+
         CantPlaceHere cantPlaceHere = collision.gameObject.GetComponent<CantPlaceHere>();
 
-        if(cantPlaceHere != null)
+        if (cantPlaceHere != null)
         {
-            currentlyOverlapping= true;
+            currentlyOverlapping = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.gameObject.tag != "CantPlaceHere") return;
         currentlyOverlapping = false;
     }
 

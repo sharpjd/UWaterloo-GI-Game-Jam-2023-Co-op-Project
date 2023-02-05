@@ -37,7 +37,7 @@ public class EnemyEntity : Entity, IHittable
         health -= damage;
         if (health <= 0)
         {
-            Debug.Log("I am dead");
+            //Debug.Log("I am dead");
             Die();
         }
     }
