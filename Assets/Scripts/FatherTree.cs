@@ -19,20 +19,13 @@ public class FatherTree : TowerEntity
 
         towersInRange = GameHandler.instance.entityTracker.GetTowersInArea(transform.position, buffRange);
 
-        foreach (TowerEntity tower in towersInRange)
+        foreach (MotherTree tower in towersInRange)
         {
-            tower.fireRateSecs /= buffAmount;
-        }
+            if (tower.gameObject.GetComponent<FatherTree>() != null)
+            {
+                fireRateSecs /= buffAmount;
+            }
 
-    }
-
-    // Update is called once per frame
-    private void OnDestroy()
-    {
-        foreach (TowerEntity tower in towersInRange)
-        {
-            tower.fireRateSecs *= buffAmount;
         }
     }
-
 }
