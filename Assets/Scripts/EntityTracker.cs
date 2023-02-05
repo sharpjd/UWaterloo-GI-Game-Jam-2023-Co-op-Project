@@ -68,6 +68,8 @@ public class EntityTracker : MonoBehaviour
         List<TowerEntity> towersInArea = new();
         foreach(Entity entity in entities) 
         {
+            Debug.Log(entity);
+
             if (entity is not TowerEntity) continue;
             if (Vector2.Distance(position, entity.gameObject.transform.position) < radius)
             {
