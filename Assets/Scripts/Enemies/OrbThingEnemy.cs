@@ -58,13 +58,14 @@ public class OrbThingEnemy : EnemyEntity
     void Stun(TowerEntity towerEntity)
     {
         towerEntity.CanFire = false;
-        towerEntity.SpriteRenderer.color += new Color(0,0,0.3f);
+        towerEntity.SpriteRenderer.color -= new Color(0.3f, 0.3f, 0f, 0f);
+        Debug.Log(towerEntity.SpriteRenderer.color);
     }
 
     void UndoStun(TowerEntity towerEntity, bool previousValue)
     {
         towerEntity.CanFire = previousValue;
-        towerEntity.SpriteRenderer.color -= new Color(0, 0, 0.3f);
+        towerEntity.SpriteRenderer.color += new Color(0.3f, 0.3f, 0f, 0f);
     }
 
 

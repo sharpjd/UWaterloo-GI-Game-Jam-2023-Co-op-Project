@@ -97,7 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e62955a086b2c4a688fe1ca94071b455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddToTargetTrackerAtStart: 0
+  spriteRenderer: {fileID: 0}
+  AddToTargetTrackerAtStart: 1
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
   towerSprite: {fileID: 21300000, guid: ed1d0810b1bfd7545a00a31a7e295800, type: 3}
@@ -106,3 +107,4 @@ MonoBehaviour:
   fireRateSecs: 0.5
   debugOutput: 0
   shotPrediction: 1
+  canFire: 1

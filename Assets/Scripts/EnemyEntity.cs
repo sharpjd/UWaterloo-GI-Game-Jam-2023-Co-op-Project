@@ -29,7 +29,6 @@ public class EnemyEntity : Entity, IHittable
     public override void Start()
     {
         base.Start();
-        GameHandler.instance.entityTracker.AddToTracker(this);
         transform.position = GameHandler.instance.mapPositioner.GetPositionOnMapByProgress(0);
     }
 
