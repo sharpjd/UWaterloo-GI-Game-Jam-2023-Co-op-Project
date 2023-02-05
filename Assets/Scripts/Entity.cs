@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    [SerializeField]
+    SpriteRenderer spriteRenderer;
 
     List<IEntityExtension> entityExtensions = new();
 
@@ -19,6 +21,7 @@ public class Entity : MonoBehaviour
     [SerializeField]
     Vector2 currentVelocityPerSecondVec;
     public Vector2 CurrentVelocityPerSecondVec { get => currentVelocityPerSecondVec; }
+    public SpriteRenderer SpriteRenderer { get => spriteRenderer; }
 
     public bool AddEntityExtension(IEntityExtension entityExtension)
     {
@@ -33,6 +36,8 @@ public class Entity : MonoBehaviour
 
     public virtual void Awake()
     {
+        spriteRenderer= GetComponent<SpriteRenderer>();
+
         /*
         texture2D = GetComponent<Texture2D>();
         physics2D = GetComponent<Physics2D>();

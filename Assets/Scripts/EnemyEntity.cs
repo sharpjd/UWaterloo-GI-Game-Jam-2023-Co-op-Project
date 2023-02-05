@@ -48,6 +48,12 @@ public class EnemyEntity : Entity, IHittable
         base.Update();
         currentProgress += progressPerSecond * Time.deltaTime;
         transform.position = GameHandler.instance.mapPositioner.GetPositionOnMapByProgress(currentProgress);
+
+        PostUpdate();
+    }
+
+    public virtual void PostUpdate() {
+
     }
 
     public virtual void Die()

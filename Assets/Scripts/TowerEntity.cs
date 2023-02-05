@@ -25,6 +25,10 @@ public class TowerEntity : Entity
     //obtained from projectileToInstantiate
     float projectileVelocity;
 
+    [SerializeField]
+    bool canFire = true;
+    public bool CanFire { get => canFire; set => canFire = value; }
+
     public override void Start()
     {
         base.Start();
@@ -34,6 +38,7 @@ public class TowerEntity : Entity
 
     // Update is called once per frame
     float lastTimeFired = 0;
+
     public override void Update()
     {
         base.Update();
@@ -46,6 +51,8 @@ public class TowerEntity : Entity
 
     public virtual void OnProjectileFire()
     {
+
+        if (!canFire) return;
 
         Entity closestTarget = 
             GameHandler.instance.entityTracker.GetClosestEnemy(transform.position, range);
