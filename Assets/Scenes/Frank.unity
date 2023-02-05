@@ -4508,6 +4508,7 @@ MonoBehaviour:
   PurchasedEntity: {fileID: 0}
   shopMenu: {fileID: 565480793}
   button: {fileID: 598295208}
+  RangeIndicatorToInstantiate: {fileID: 7495779943134781165, guid: 16f4baa3ca1563f4da4d6111f752a072, type: 3}
 --- !u!4 &755381563
 Transform:
   m_ObjectHideFlags: 0

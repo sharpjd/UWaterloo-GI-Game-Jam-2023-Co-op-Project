@@ -37,7 +37,11 @@ public class PlayerController : MonoBehaviour
 
 
     Vector2 mouseFollowOffset;
-    Color originalSpriteColor;
+
+    public GameObject RangeIndicatorToInstantiate;
+
+    GameObject rangeIndicator;
+
     // Update is called once per frame
     void Update()
     {
@@ -49,10 +53,12 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Set") && PurchasedEntity != null)
         {
             CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponent<CantPlaceHere>();
+
             if (!cantPlaceHere.CurrentlyOverlapping)
             {
                 Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
                 Destroy(cantPlaceHereHitbox);
+                Destroy(rangeIndicator);
                 cantPlaceHereHitbox = null;
                 PurchasedEntity = null;
             }
@@ -66,6 +72,12 @@ public class PlayerController : MonoBehaviour
             {
                 cantPlaceHereHitbox = Instantiate(PurchasedEntity.GetComponentInChildren<CantPlaceHere>().gameObject);
                 mouseFollowOffset = cantPlaceHereHitbox.transform.position;
+
+                rangeIndicator = Instantiate(RangeIndicatorToInstantiate);
+                rangeIndicator.AddComponent<FollowMouse>();
+                float range = PurchasedEntity.GetComponent<TowerEntity>().range;
+                rangeIndicator.transform.localScale = new Vector3(range, range);
+                rangeIndicator.SetActive(true);
             }
             CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponentInChildren<CantPlaceHere>();
             cantPlaceHere.MouseFollowOffset = mouseFollowOffset;
