@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
     GameObject shopMenu;
     [SerializeField]
     Button button;
-    [SerializeField]
-    Image hoverImage;
+
+    SpriteRenderer hoverImage;
 
     void Awake()
     {
@@ -24,9 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        hoverImage = GetComponent<SpriteRenderer>();
         shopMenu.SetActive(false);
         button.onClick.AddListener(ToggleShop);
-        hoverImage.gameObject.SetActive(false);
+        hoverImage.enabled = false;
     }
 
     private void OnDestroy()
@@ -42,15 +43,22 @@ public class PlayerController : MonoBehaviour
             ToggleShop();
         }
 
+        if (Input.GetButtonDown("Set"))
+        {
+            Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
+
+            PurchasedEntity = null;
+        }
+
         if (PurchasedEntity != null)
         {
-            hoverImage.gameObject.SetActive(true);
+            hoverImage.enabled = true;
             hoverImage.sprite = PurchasedEntity.towerSprite;
 
-            hoverImage.gameObject.transform.position = Input.mousePosition;
+            transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         } else
         {
-            hoverImage.gameObject.SetActive(false);
+            hoverImage.enabled = false;
         }
     }
 
