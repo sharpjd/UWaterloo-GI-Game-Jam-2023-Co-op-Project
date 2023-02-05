@@ -63,4 +63,10 @@ public class EnemyEntity : Entity, IHittable
         Destroy(gameObject);
     }
 
+    //just in case
+    private void OnDestroy()
+    {
+        GameHandler.instance.entityTracker.RemoveFromTracker(this);
+    }
+
 }

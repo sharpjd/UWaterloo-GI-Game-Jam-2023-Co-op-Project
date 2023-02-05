@@ -1,5 +1,6 @@
 using Assets;
 using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,7 @@ public class SlowProjectile : StandardProjectileEntity
     [SerializeField]
     float knockbackDurationSeconds = 5f;
     [SerializeField]
-    SlowType slowType = SlowType.AppleTree;
+    EffectType effectType = EffectType.AppleTree;
 
     public override void OnHit(GameObject gameObject_)
     {
@@ -25,16 +26,38 @@ public class SlowProjectile : StandardProjectileEntity
 
             if (entity is EnemyEntity)
             {
+
+                EnemyEntity enemyEntity = (EnemyEntity)entity;
+                float previousEnemyEntitySpeed = enemyEntity.ProgressPerSecond;
                 //prevent stacking
-                if (entity.GetComponent<EntityProgressChangerUnchanger>() == null)
-                { 
-                    EntityProgressChangerUnchanger.instantiateEntityProgressChangerUnchanger(
-                    (EnemyEntity)entity, knockbackProgressFactor, knockbackDurationSeconds, slowType
+                if (entity.GetComponent<EnemyEntityEffectApplier>() == null)
+                {
+
+                    Action before = delegate ()
+                    {
+                        Slow(enemyEntity);
+                    };
+                    Action after = delegate ()
+                    {
+                        Unslow(enemyEntity, previousEnemyEntitySpeed);
+                    };
+
+                    EnemyEntityEffectApplier.instantiateEnemyEntityEffectApplier(
+                    (EnemyEntity)entity, before, after, knockbackDurationSeconds
                     );
                 }
             }
 
             OnDestruction();
         }
+    }
+
+    void Slow(EnemyEntity enemyEntity)
+    {
+        enemyEntity.ProgressPerSecond *= knockbackProgressFactor;
+    }
+    void Unslow(EnemyEntity enemyEntity, float previousProgressPerSecond)
+    {
+        enemyEntity.ProgressPerSecond = previousProgressPerSecond;
     }
 }
