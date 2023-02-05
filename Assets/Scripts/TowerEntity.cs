@@ -14,7 +14,7 @@ public class TowerEntity : Entity
     public Sprite towerSprite;
 
     [SerializeField]
-    GameObject projectileToInstantiate;
+    protected GameObject projectileToInstantiate;
 
     public float range = 3f;
     public float fireRateSecs = 0.5f;
@@ -22,12 +22,12 @@ public class TowerEntity : Entity
     [SerializeField]
     bool debugOutput = false;
     [SerializeField]
-    bool shotPrediction = true;
+    protected bool shotPrediction = true;
 
     public bool isImmunetoStun = false;
 
     //obtained from projectileToInstantiate
-    float projectileVelocity;
+    protected float projectileVelocity;
 
     [SerializeField]
     bool canFire = true;
