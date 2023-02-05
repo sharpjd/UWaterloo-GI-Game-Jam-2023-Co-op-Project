@@ -12,6 +12,9 @@ public class TowerEntity : Entity
 
     public Sprite towerSprite;
 
+    public GameObject RangeIndicator;
+    Collider2D mouseoverCollider;
+
     [SerializeField]
     protected GameObject projectileToInstantiate;
 
@@ -35,7 +38,12 @@ public class TowerEntity : Entity
 
     public override void Awake()
     {
+
+        mouseoverCollider = gameObject.AddComponent<BoxCollider2D>();
+
         CantPlaceHereHitbox = gameObject.GetComponentInChildren<CantPlaceHere>().gameObject;
+
+        RangeIndicator = transform.Find("RangeIndicator").gameObject;
 
         base.Awake();
         cantPlaceHereScript = CantPlaceHereHitbox?.gameObject.GetComponent<CantPlaceHere>();
@@ -50,6 +58,8 @@ public class TowerEntity : Entity
     public override void Start()
     {
         base.Start();
+        RangeIndicator.transform.localScale = new Vector3(range,range);
+
         projectileVelocity = projectileToInstantiate.GetComponent<StandardProjectileEntity>().velocityPerSecond;
         gameObject.GetComponent<SpriteRenderer>().sprite = towerSprite;
     }
@@ -66,6 +76,17 @@ public class TowerEntity : Entity
             lastTimeFired = Time.time;
             //Debug.Log("fired");
         }
+
+    }
+
+    private void OnMouseOver()
+    {
+        RangeIndicator.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        RangeIndicator.SetActive(false);
     }
 
 
@@ -89,6 +110,10 @@ public class TowerEntity : Entity
             Debug.DrawLine(transform.position, target.transform.position, Color.red, 3f);
 
         GameObject projectile = Instantiate(projectileToInstantiate);
+
+        StandardProjectileEntity standardProjectileEntity = projectile.GetComponent<StandardProjectileEntity>();
+        standardProjectileEntity.range = range;
+
         projectile.transform.position = transform.position;
 
         Vector2 predictedTargetDirection = PositioningUtils.PredictShotToTarget(transform.position, target.transform, projectileVelocity, target.CurrentVelocityPerSecondVec);
