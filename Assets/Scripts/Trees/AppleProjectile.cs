@@ -14,9 +14,9 @@ public class AppleProjectile : StandardProjectileEntity
     float knockbackDurationSeconds = 5f;
 
 
-    public override void OnHit(Collider2D collision)
+    public override void OnHit(GameObject gameObject_)
     {
-        Entity entity = collision.gameObject.GetComponent<Entity>();
+        Entity entity = gameObject_.gameObject.GetComponent<Entity>();
         if (entity is IHittable)
         {
             IHittable hittable = (IHittable)entity;

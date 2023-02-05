@@ -16,7 +16,7 @@ public class BananaProjectile : StandardProjectileEntity
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        OnHit(collision);
+        OnHit(collision.gameObject);
     }
 
     public override void PostStart()
