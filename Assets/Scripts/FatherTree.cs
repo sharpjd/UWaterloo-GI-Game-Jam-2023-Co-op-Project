@@ -19,13 +19,12 @@ public class FatherTree : TowerEntity
 
         towersInRange = GameHandler.instance.entityTracker.GetTowersInArea(transform.position, buffRange);
 
-        foreach (MotherTree tower in towersInRange)
+        foreach (TowerEntity tower in towersInRange)
         {
-            if (tower.gameObject.GetComponent<FatherTree>() != null)
+            if (tower is MotherTree)
             {
                 fireRateSecs /= buffAmount;
             }
-
         }
     }
 }

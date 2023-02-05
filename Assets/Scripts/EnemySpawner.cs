@@ -39,11 +39,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator DoRound()
     {
+        yield return new WaitForSeconds(5);
         while (roundPoints > 0)
         {
             yield return new WaitForSeconds(SpawnEnemy() + UnityEngine.Random.Range(-1.0f, 1.0f));
         }
-    }
+    } 
 
     void OnRoundEnd()
     {
