@@ -28,7 +28,7 @@ public class TowerEntity : Entity
     public override void Start()
     {
         base.Start();
-        projectileVelocity = projectileToInstantiate.GetComponent<ProjectileEntity>().velocityPerSecond;
+        projectileVelocity = projectileToInstantiate.GetComponent<StandardProjectileEntity>().velocityPerSecond;
         gameObject.GetComponent<SpriteRenderer>().sprite = towerSprite;
     }
 

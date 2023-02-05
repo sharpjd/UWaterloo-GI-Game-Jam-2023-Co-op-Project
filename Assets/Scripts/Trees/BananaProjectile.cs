@@ -1,20 +1,24 @@
 using Assets;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProjectileEntity : Entity
+public class BananaProjectile : Entity
 {
     [SerializeField]
-    public int damage = 1;
-
+    float orbitRadius = 1f;
     [SerializeField]
-    public float velocityPerSecond = 1f;
-
+    float orbitCompletionTimeSeconds = 1.5f;
+    [SerializeField]
+    public int damage = 1;
     [SerializeField]
     float lifetimeSeconds = 10f;
 
     float firedTime;
+
+    [SerializeField]
+    Vector2 origin;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -41,18 +45,24 @@ public class ProjectileEntity : Entity
     public override void Start()
     {
         base.Start();
+        origin = transform.position;
         firedTime = Time.time;
     }
 
     public override void Update()
     {
         base.Update();
-        transform.position += (Vector3)((Vector2)transform.right * velocityPerSecond * Time.deltaTime);
 
-        if(Time.time - firedTime > lifetimeSeconds)
+        Vector2 pos = new Vector2(Mathf.Sin(Time.time - firedTime) * orbitRadius, Mathf.Sin(Time.time - firedTime) * orbitRadius);
+
+        transform.position = origin + pos;
+
+
+        if (Time.time - firedTime > lifetimeSeconds)
         {
             OnDestruction();
         }
     }
+
 
 }
