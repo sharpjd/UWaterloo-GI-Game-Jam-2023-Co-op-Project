@@ -2739,8 +2739,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 142440115}
   m_HandleRect: {fileID: 142440114}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.22495914
+  m_Value: 1.0000002
+  m_Size: 0.33271626
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3283,7 +3283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 14.699951, y: -33.1}
+  m_AnchoredPosition: {x: 14.699951, y: -33.100006}
   m_SizeDelta: {x: 304.2802, y: 117.7605}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &603452286
@@ -5028,8 +5028,8 @@ Canvas:
   m_GameObject: {fileID: 833483345}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1968282429}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5168,7 +5168,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 229.8961, y: -35.129}
+  m_AnchoredPosition: {x: 229.89612, y: -35.128998}
   m_SizeDelta: {x: 1136.9534, y: 114.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &837593388
@@ -7486,7 +7486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 31.200012, y: -35.4}
+  m_AnchoredPosition: {x: 31.200012, y: -35.399994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399857002

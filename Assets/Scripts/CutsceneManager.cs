@@ -26,7 +26,7 @@ public class CutsceneManager : MonoBehaviour
         image.sprite = frames[index].image;
         text.text = (frames[index].text);
         yield return new WaitForSeconds(frames[index].length);
-        StartCoroutine("FadeOut");
+        //StartCoroutine("FadeOut");
         yield return new WaitForSeconds(2);
         if (frames.Length - 1 > index)
         {
@@ -34,9 +34,11 @@ public class CutsceneManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Frank");
+            //StartCoroutine("FadeIn");
+            SceneManager.LoadScene("Frank", LoadSceneMode.Single);
+            Destroy(gameObject);
         }
-        StartCoroutine("FadeIn");
+        //StartCoroutine("FadeIn");
     }
 
     IEnumerator FadeOut()
