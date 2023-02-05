@@ -65,6 +65,7 @@ public class EnemyEntity : Entity, IHittable
     //just in case
     private void OnDestroy()
     {
+        EnemySpawner.instance.OnEnemyDie(this);
         GameHandler.instance.entityTracker.RemoveFromTracker(this);
     }
 
