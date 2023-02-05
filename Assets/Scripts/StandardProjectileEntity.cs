@@ -1,6 +1,4 @@
 using Assets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StandardProjectileEntity : Entity
@@ -55,7 +53,7 @@ public class StandardProjectileEntity : Entity
         base.Update();
         transform.position += (Vector3)((Vector2)transform.right * velocityPerSecond * Time.deltaTime);
 
-        if(Time.time - firedTime > lifetimeSeconds)
+        if (Time.time - firedTime > lifetimeSeconds)
         {
             OnDestruction();
         }

@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Tilemaps;
+
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 //TODO:
 public class TowerEntity : Entity
@@ -43,7 +40,7 @@ public class TowerEntity : Entity
         base.Awake();
         cantPlaceHereScript = CantPlaceHereHitbox?.gameObject.GetComponent<CantPlaceHere>();
 
-        if(cantPlaceHereScript == null)
+        if (cantPlaceHereScript == null)
         {
             Debug.LogError("Missing CantPlaceHere reference");
         }
@@ -63,9 +60,10 @@ public class TowerEntity : Entity
     public override void Update()
     {
         base.Update();
-        if(Time.time - lastTimeFired > fireRateSecs) {
+        if (Time.time - lastTimeFired > fireRateSecs)
+        {
             OnProjectileFire();
-            lastTimeFired= Time.time;
+            lastTimeFired = Time.time;
             //Debug.Log("fired");
         }
     }
@@ -75,8 +73,8 @@ public class TowerEntity : Entity
     {
 
         if (!canFire && !isImmunetoStun) return;
-        
-        Entity closestTarget = 
+
+        Entity closestTarget =
             GameHandler.instance.entityTracker.GetClosestEnemy(transform.position, range);
 
         if (closestTarget != null)
@@ -87,7 +85,7 @@ public class TowerEntity : Entity
 
     public virtual void FireProjectile(Entity target)
     {
-        if(debugOutput)
+        if (debugOutput)
             Debug.DrawLine(transform.position, target.transform.position, Color.red, 3f);
 
         GameObject projectile = Instantiate(projectileToInstantiate);

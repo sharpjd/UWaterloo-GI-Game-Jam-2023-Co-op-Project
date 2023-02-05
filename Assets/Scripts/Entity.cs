@@ -1,7 +1,5 @@
 using Assets;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -36,7 +34,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Awake()
     {
-        spriteRenderer= GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         /*
         texture2D = GetComponent<Texture2D>();
@@ -51,7 +49,7 @@ public class Entity : MonoBehaviour
 
         if (AddToTargetTrackerAtStart)
         {
-            GameHandler.instance.entityTracker.AddToTracker(this);  
+            GameHandler.instance.entityTracker.AddToTracker(this);
         }
     }
 
@@ -59,8 +57,8 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        currentVelocityPerSecond = ((Vector2)transform.position - previousPos).magnitude/Time.deltaTime;
-        currentVelocityPerSecondVec = ((Vector2)transform.position - previousPos)/Time.deltaTime;
+        currentVelocityPerSecond = ((Vector2)transform.position - previousPos).magnitude / Time.deltaTime;
+        currentVelocityPerSecondVec = ((Vector2)transform.position - previousPos) / Time.deltaTime;
         previousPos = transform.position;
     }
 }

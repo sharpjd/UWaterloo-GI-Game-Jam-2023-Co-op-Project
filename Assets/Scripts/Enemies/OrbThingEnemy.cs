@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,12 +18,10 @@ public class OrbThingEnemy : EnemyEntity
     {
 
         //cooldown for the stun, the rest of the script should just be the stunning stuff
-        if(Time.time - lastTimeStunned < stunDurationSecs) { return; }
-
-        
+        if (Time.time - lastTimeStunned < stunCooldownSecs) { return; }
 
         lastTimeStunned = Time.time;
-        
+
         List<TowerEntity> towerEntities = GameHandler.instance.entityTracker.GetTowersInArea(transform.position, stunRange);
 
         Debug.Log("Trying to stun " + towerEntities.Count + " enemies");
@@ -46,7 +43,8 @@ public class OrbThingEnemy : EnemyEntity
                     UndoStun(towerEntity, towerEntityCanFire);
                 };
 
-                if(towerEntity.GetComponent<TowerEffectApplier>() == null) { 
+                if (towerEntity.GetComponent<TowerEffectApplier>() == null)
+                {
                     TowerEffectApplier.instantiateTowerEffectApplier(towerEntity, before, after, stunDurationSecs);
                 }
 

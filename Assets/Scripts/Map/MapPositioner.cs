@@ -1,5 +1,3 @@
-using Microsoft.Unity.VisualStudio.Editor;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +6,7 @@ public class MapPositioner : MonoBehaviour
 
     float sumOfDistance;
 
-    List<MapPathPoint> MapPathPoints= new List<MapPathPoint>();
+    List<MapPathPoint> MapPathPoints = new List<MapPathPoint>();
 
     private MapPathPoint firstMapPathPoint;
     private MapPathPoint lastMapPathPoint;
@@ -37,13 +35,13 @@ public class MapPositioner : MonoBehaviour
         {
             sortedMapPathPoints[mapPathPoint.NumberInPointSequence] = mapPathPoint;
 
-            if(mapPathPoint.NumberInPointSequence == 0)
+            if (mapPathPoint.NumberInPointSequence == 0)
             {
                 firstPoint = mapPathPoint;
             }
         }
         MapPathPoints = new List<MapPathPoint>(sortedMapPathPoints);
-        
+
         lastMapPathPoint = MapPathPoints[MapPathPoints.Count - 1];
 
         /*
@@ -83,13 +81,13 @@ public class MapPositioner : MonoBehaviour
         MapPathPoint point1 = null;
         MapPathPoint point2 = null;
 
-        if(debugOutput)
+        if (debugOutput)
             Debug.Log("Distance and percentage: " + distance + ", " + progress);
 
         //Find the two points the progress is supposed to be in between 
         float progressRemaining = progress;
         float distanceRemaining = distance;
-        for (int i = 0; i < MapPathPoints.Count-1; i++)
+        for (int i = 0; i < MapPathPoints.Count - 1; i++)
         {
 
             if (MapPathPoints[i] == null)
@@ -100,7 +98,7 @@ public class MapPositioner : MonoBehaviour
             //this is the distance between the current point and the next, starting from point 
             float deltaDistance = Vector2.Distance(
                     MapPathPoints[i].gameObject.transform.position,
-                    MapPathPoints[i+1].gameObject.transform.position
+                    MapPathPoints[i + 1].gameObject.transform.position
                     );
             //if the remaining distance minus the distance between
             //this point and the next point is less than zero,
@@ -112,11 +110,11 @@ public class MapPositioner : MonoBehaviour
             if (distanceRemaining < 0)
             {
                 point1 = MapPathPoints[i];
-                point2 = MapPathPoints[i+1];
+                point2 = MapPathPoints[i + 1];
                 break;
             }
             progressRemaining -= deltaDistance / sumOfDistance;
-            
+
         }
 
         //A nullreference will be thrown here if the above loop is not working correctly
