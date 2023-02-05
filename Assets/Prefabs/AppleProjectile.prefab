@@ -105,7 +105,7 @@ MonoBehaviour:
   velocityPerSecond: 3
   lifetimeSeconds: 10
   knockbackProgressFactor: -0.5
-  knockbackDurationSeconds: 5
+  knockbackDurationSeconds: 1
 --- !u!58 &3417152327307534240
 CircleCollider2D:
   m_ObjectHideFlags: 0
