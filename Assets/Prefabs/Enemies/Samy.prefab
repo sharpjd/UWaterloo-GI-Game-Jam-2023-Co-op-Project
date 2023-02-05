@@ -88,11 +88,11 @@ MonoBehaviour:
   AddToTargetTrackerAtStart: 1
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
-  health: 12
-  essence: 500
-  progressPerSecond: 0.015
+  health: 1000000
+  essence: 200000000
+  progressPerSecond: 0.005
   currentProgress: 0
-  damage: 10
+  damage: 100
 --- !u!1 &8739763789194266430
 GameObject:
   m_ObjectHideFlags: 0

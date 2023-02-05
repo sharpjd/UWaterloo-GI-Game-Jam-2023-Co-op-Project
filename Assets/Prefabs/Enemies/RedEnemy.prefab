@@ -122,10 +122,10 @@ MonoBehaviour:
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
   health: 2
-  essence: 500
+  essence: 1
   progressPerSecond: 0.01
   currentProgress: 0
-  damage: 10
+  damage: 1
 --- !u!1 &8636131197875144572
 GameObject:
   m_ObjectHideFlags: 0
