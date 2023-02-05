@@ -24,6 +24,8 @@ public class TowerEntity : Entity
     [SerializeField]
     bool shotPrediction = true;
 
+    public bool isImmunetoStun = false;
+
     //obtained from projectileToInstantiate
     float projectileVelocity;
 
@@ -51,11 +53,12 @@ public class TowerEntity : Entity
         }
     }
 
+
     public virtual void OnProjectileFire()
     {
 
-        if (!canFire) return;
-
+        if (!canFire && !isImmunetoStun) return;
+        
         Entity closestTarget = 
             GameHandler.instance.entityTracker.GetClosestEnemy(transform.position, range);
 
