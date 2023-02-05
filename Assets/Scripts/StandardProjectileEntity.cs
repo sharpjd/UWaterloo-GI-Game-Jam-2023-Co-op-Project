@@ -12,9 +12,9 @@ public class StandardProjectileEntity : Entity
     public float velocityPerSecond = 1f;
 
     [SerializeField]
-    float lifetimeSeconds = 10f;
+    protected float lifetimeSeconds = 10f;
 
-    float firedTime;
+    protected float firedTime;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,6 +53,13 @@ public class StandardProjectileEntity : Entity
         {
             OnDestruction();
         }
+
+        postUpdate();
+    }
+
+    public virtual void postUpdate()
+    {
+
     }
 
 }

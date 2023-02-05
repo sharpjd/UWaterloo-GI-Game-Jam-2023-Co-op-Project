@@ -2,7 +2,7 @@
 
 
 /// <summary>
-/// Note: it is easier to instantiate this with <see cref="instantiateEntityProgressChangerUnchanger(EnemyEntity, float, float, float)"/>
+/// Note: it is easier to instantiate this with <see cref="instantiateEntityProgressChangerUnchanger(EnemyEntity, float, float)"/>
 /// Keep in mind that stacking instances of this will also cause misbehavior.
 /// </summary>
 class EntityProgressChangerUnchanger : MonoBehaviour
