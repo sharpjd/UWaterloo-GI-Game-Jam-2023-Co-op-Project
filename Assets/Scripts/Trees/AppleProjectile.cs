@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AppleProjectile : ProjectileEntity
+public class AppleProjectile : StandardProjectileEntity
 {
 
     [SerializeField]
