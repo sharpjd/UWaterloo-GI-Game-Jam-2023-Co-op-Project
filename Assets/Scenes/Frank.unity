@@ -2739,8 +2739,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 142440115}
   m_HandleRect: {fileID: 142440114}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.33271626
+  m_Value: 1.0000001
+  m_Size: 0.17086588
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7810,7 +7810,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a8c8608ecc55c54cb6763eb4d9c03b4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.207
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
