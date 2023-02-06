@@ -106,8 +106,10 @@ MonoBehaviour:
   damage: 1
   velocityPerSecond: 1
   lifetimeSeconds: 10
-  knockbackProgressFactor: 1
-  knockbackDurationSeconds: 1
+  range: 2
+  remainingRange: 0
+  knockbackProgressFactor: 0.9
+  knockbackDurationSeconds: 0.2
   effectType: 0
 --- !u!58 &3417152327307534240
 CircleCollider2D:
@@ -144,3 +146,5 @@ MonoBehaviour:
   damage: 400
   velocityPerSecond: 3
   lifetimeSeconds: 10
+  range: 0
+  remainingRange: 0

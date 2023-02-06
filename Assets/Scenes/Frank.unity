@@ -8010,7 +8010,7 @@ PrefabInstance:
     - target: {fileID: 4888103520680552958, guid: ce7b9c2e7e3cb124cbdab202ebe48cec, type: 3}
       propertyPath: ThingToBuy
       value: 
-      objectReference: {fileID: 199203950835686761, guid: 1432a9f2920e4a147afc754222edcc21, type: 3}
+      objectReference: {fileID: -8785444253909613044, guid: 1432a9f2920e4a147afc754222edcc21, type: 3}
     - target: {fileID: 6326801804340499778, guid: ce7b9c2e7e3cb124cbdab202ebe48cec, type: 3}
       propertyPath: m_Text
       value: 100,000
