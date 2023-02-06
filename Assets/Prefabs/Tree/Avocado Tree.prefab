@@ -114,7 +114,7 @@ MonoBehaviour:
   shotPrediction: 1
   isImmunetoStun: 0
   canFire: 1
-  DispenseRateSecs: 3
+  DispenseRateSecs: 10
   essenceGain: 100
 --- !u!1001 &3123662086849176352
 PrefabInstance:
