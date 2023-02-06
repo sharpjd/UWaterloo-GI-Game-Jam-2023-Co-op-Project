@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
             if (!cantPlaceHere.CurrentlyOverlapping)
             {
-                Instantiate(PurchasedEntity, transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
+                Instantiate(PurchasedEntity, (Vector2)transform.position, Quaternion.identity).transform.localScale = new Vector3(1, 1, 1);
                 Destroy(cantPlaceHereHitbox);
                 Destroy(rangeIndicator);
                 cantPlaceHereHitbox = null;
