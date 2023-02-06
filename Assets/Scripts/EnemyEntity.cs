@@ -45,6 +45,12 @@ public class EnemyEntity : Entity, IHittable
         currentProgress += progressPerSecond * Time.deltaTime;
         transform.position = GameHandler.instance.mapPositioner.GetPositionOnMapByProgress(currentProgress);
 
+        if(currentProgress >= 1f)
+        {
+            GameHandler.instance.LoseHealth(damage);
+            Destroy(gameObject);
+        }
+
         PostUpdate();
     }
 
