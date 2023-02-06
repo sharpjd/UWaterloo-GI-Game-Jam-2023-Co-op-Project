@@ -228,7 +228,7 @@ MonoBehaviour:
   currentVelocityPerSecondVec: {x: 0, y: 0}
   health: 10
   essence: 10
-  progressPerSecond: 0.015
+  progressPerSecond: 0.025
   currentProgress: 0
   damage: 2
 --- !u!1 &8739763789194266430
