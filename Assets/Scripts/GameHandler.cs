@@ -19,6 +19,7 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
+
         instance = this;
 
         if (entityTracker == null)

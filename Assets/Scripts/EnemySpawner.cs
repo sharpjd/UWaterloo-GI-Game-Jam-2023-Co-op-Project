@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
 
     void OnRoundStart()
     {
-        roundPoints = (int)(Mathf.Pow(round, 1.3f) * 2) + 3;
+        roundPoints = (int)(Mathf.Pow(round, 1.7f) * 2) + 3;
 
         StartCoroutine(DoRound());
     }

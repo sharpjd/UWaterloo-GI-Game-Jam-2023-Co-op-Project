@@ -114,7 +114,7 @@ MonoBehaviour:
   shotPrediction: 1
   isImmunetoStun: 0
   canFire: 0
-  buffRange: 5
+  buffRange: 1
   buffAmount: 3
 --- !u!1001 &6000255052373996514
 PrefabInstance:
@@ -192,7 +192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1765984525971717404, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
       propertyPath: m_Radius
-      value: 0.27
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 3265944420066165663, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
       propertyPath: m_RootOrder
@@ -200,11 +200,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3265944420066165663, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.01
+      value: -0.014
       objectReference: {fileID: 0}
     - target: {fileID: 3265944420066165663, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.064
+      value: -0.195
       objectReference: {fileID: 0}
     - target: {fileID: 3265944420066165663, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
       propertyPath: m_LocalPosition.z
