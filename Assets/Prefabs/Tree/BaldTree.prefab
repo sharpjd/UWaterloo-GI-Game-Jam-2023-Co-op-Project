@@ -108,7 +108,7 @@ MonoBehaviour:
   towerSprite: {fileID: 21300000, guid: adfd4944d48069444bee126397610c8a, type: 3}
   RangeIndicator: {fileID: 1711477799816813347}
   projectileToInstantiate: {fileID: 0}
-  range: 5
+  range: 1.5
   fireRateSecs: 0.5
   debugOutput: 0
   shotPrediction: 1

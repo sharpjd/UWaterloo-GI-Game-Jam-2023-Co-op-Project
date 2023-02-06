@@ -20,7 +20,7 @@ public class SeeTree : TowerEntity
 
         foreach (TowerEntity tower in towersInRange)
         {
-            tower.range *= buffAmount;
+            tower.Range *= buffAmount;
         }
 
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 199203950835686763}
   - component: {fileID: 199203950835686762}
-  - component: {fileID: 199203950835686761}
+  - component: {fileID: -8785444253909613044}
   m_Layer: 0
   m_Name: LaserTree
   m_TagString: Untagged
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &199203950835686761
+--- !u!114 &-8785444253909613044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,19 +96,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 199203950835686760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddab2b6ee9414d442ac90f3f763bc89d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ed77dc3cf763b64cbc3d6cd2fc37ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 199203950835686762}
+  spriteRenderer: {fileID: 0}
   AddToTargetTrackerAtStart: 1
   currentVelocityPerSecond: 0
   currentVelocityPerSecondVec: {x: 0, y: 0}
-  CantPlaceHereHitbox: {fileID: 0}
+  CantPlaceHereHitbox: {fileID: 1771917899667110439}
   cantPlaceHereScript: {fileID: 0}
   towerSprite: {fileID: 21300000, guid: 030bb101450cb3846b21f38e15eab688, type: 3}
   RangeIndicator: {fileID: 1302473108360755684}
-  projectileToInstantiate: {fileID: 5589903892146597944, guid: 5253641e696adca4db74428f34f78c71, type: 3}
-  range: 3
+  projectileToInstantiate: {fileID: 1580141661579430887, guid: 3cf963051b9af3444848ddc554207c51, type: 3}
+  range: 2
   fireRateSecs: 0.001
   debugOutput: 0
   shotPrediction: 1
@@ -178,6 +178,11 @@ PrefabInstance:
 --- !u!4 &643879241675102436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3265944420066165663, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
+  m_PrefabInstance: {fileID: 2719457186789743483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1771917899667110439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4407456226719048028, guid: c7438d0a346848c4ebbf6ec91417f6f7, type: 3}
   m_PrefabInstance: {fileID: 2719457186789743483}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8796950920188176137

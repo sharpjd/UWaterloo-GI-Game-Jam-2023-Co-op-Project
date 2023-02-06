@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
 
                 rangeIndicator = Instantiate(RangeIndicatorToInstantiate);
                 rangeIndicator.AddComponent<FollowMouse>();
-                float range = PurchasedEntity.GetComponent<TowerEntity>().range;
-                rangeIndicator.transform.localScale = new Vector3(range, range);
+                float range = PurchasedEntity.GetComponent<TowerEntity>().Range;
+                rangeIndicator.transform.localScale = new Vector3(2*range, 2*range);
                 rangeIndicator.SetActive(true);
             }
             CantPlaceHere cantPlaceHere = cantPlaceHereHitbox.GetComponentInChildren<CantPlaceHere>();

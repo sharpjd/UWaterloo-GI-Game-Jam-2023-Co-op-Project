@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 
 //TODO:
@@ -18,7 +19,8 @@ public class TowerEntity : Entity
     [SerializeField]
     protected GameObject projectileToInstantiate;
 
-    public float range = 3f;
+    [SerializeField]
+    private float range = 3f;
     public float fireRateSecs = 0.5f;
 
     [SerializeField]
@@ -35,6 +37,19 @@ public class TowerEntity : Entity
     bool canFire = true;
     public bool CanFire { get => canFire; set => canFire = value; }
     public CantPlaceHere CantPlaceHereHitbox1 { get => cantPlaceHereScript; }
+    public float Range { 
+        get => range; 
+        set
+        {
+            range = value;
+            updateRangeIndicatorSize();
+        }
+    }
+
+    void updateRangeIndicatorSize()
+    {
+        RangeIndicator.transform.localScale = new Vector3(2f * range, 2f * range);
+    }
 
     public override void Awake()
     {
@@ -58,7 +73,7 @@ public class TowerEntity : Entity
     public override void Start()
     {
         base.Start();
-        RangeIndicator.transform.localScale = new Vector3(range,range);
+        updateRangeIndicatorSize();
 
         projectileVelocity = projectileToInstantiate.GetComponent<StandardProjectileEntity>().velocityPerSecond;
         gameObject.GetComponent<SpriteRenderer>().sprite = towerSprite;
